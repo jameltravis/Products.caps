@@ -1,0 +1,5 @@
+====================
+Products.caps
+====================
+
+User documentation
