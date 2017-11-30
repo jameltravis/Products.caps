@@ -7,6 +7,14 @@ from zope.interface import Interface
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
 
-class IProductsCapsLayer(IDefaultBrowserLayer):
-    """Marker interface that defines a browser layer."""
+class IReadmission(Interface):
 
+    title = schema.TextLine(
+        title=_(u'Name'),
+        required=True,
+    )
+
+    description = schema.Text(
+        title=_(u'Description'),
+        required=False,
+    )

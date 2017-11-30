@@ -11,7 +11,7 @@ This product is used for the rule-bending committee at my institution. The produ
 Features
 --------
 
-- Forms that create records or "files" (legal sense) for applicants
+- Folderish dexterity content types
 - Simple workflow for multi-step approval cycles
 - An option to download generated records as a .csv
 

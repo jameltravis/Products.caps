@@ -43,6 +43,8 @@ setup(
         'setuptools',
         'z3c.jbot',
         'plone.app.dexterity',
+        'Products.PloneFormGen==1.8.4',
+        'collective..pfg.dexterity==1.0.0rc1'
     ],
     extras_require={
         'test': [
