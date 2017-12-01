@@ -44,7 +44,8 @@ setup(
         'z3c.jbot',
         'plone.app.dexterity',
         'Products.PloneFormGen==1.8.4',
-        'collective..pfg.dexterity==1.0.0rc1'
+        'collective.pfg.dexterity==1.0.0rc1',
+        'collective.z3cform.datagridfield',
     ],
     extras_require={
         'test': [
