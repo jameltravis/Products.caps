@@ -8,10 +8,10 @@
   <!-- Basic properties -->
   <property
       i18n:translate=""
-      name="title">LeaveAbs</property>
+      name="title">Retroactive Withdrawal</property>
   <property
       i18n:translate=""
-      name="description">Petition for Retroactive Withdrawal or Leave of absense</property>
+      name="description">Petition for Retroactive Withdrawal or Leave of Absense</property>
 
   <property name="allow_discussion">False</property>
   <property name="factory">LeaveAbs</property>

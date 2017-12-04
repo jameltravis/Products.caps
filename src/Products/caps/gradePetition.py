@@ -13,28 +13,8 @@ from collective.z3cform.datagridfield import DictRow
 from collective.z3cform.datagridfield.datagridfield import DataGridFieldFactory
 
 
-class ICourses(model.Schema):
-    """Class for 'Course' DataGrid schema"""
-
-    course = schema.TextLine(
-        title=(u'Course and Course Number'),
-        description=(u'Ex: CHEM 101'),
-    )
-
-    courseCode = schema.TextLine(
-        title=(u'Code'),
-        description=(u'Ex: 12345'),
-        max_length=5,
-    )
-
-    courseSection = schema.TextLine(
-        title=(u'Section'),
-        description=(u'Ex: YY'),
-    )
-
-
 class ISemester(model.Schema):
-    """Used for semester and year DataGrid schema"""
+    """Used for semester and year schema"""
 
     semester = schema.Choice(
         title=(u'Semester'),
@@ -66,7 +46,7 @@ class IPhoneNumbers(model.Schema):
     )
 
 
-class ILeaveAbs(model.Schema):
+class IGradePetition(model.Schema):
     """Class to create CAPS General Petition"""
 
     title = schema.TextLine(
@@ -135,15 +115,8 @@ class ILeaveAbs(model.Schema):
     # Data grid for semester and year
     form.widget(semesterInfo=DataGridFieldFactory)
     semesterInfo = schema.List(
-        title=(u'Semester'),
+        title=(u'For what semester '),
         value_type=DictRow(title=(u'Semester and Year'), schema=ISemester),
-        required=False,
-    )
-
-    form.widget(coursesDropped=DataGridFieldFactory)
-    coursesDropped = schema.List(
-        title=(u'Courses'),
-        value_type=DictRow(title=(u'Courses to be withdrawn from'), schema=ICourses),
         required=False,
     )
 
@@ -161,18 +134,12 @@ class ILeaveAbs(model.Schema):
 
     studentStatement = field.NamedFile(
         title=(u'Personal Statement'),
-        description=(u'Be sure to include your last date of attendence for each course'),
         required=True,
     )
 
     supportingDocument = field.NamedFile(
-        title=(u'Supporting Documentation'),
+        title=(u'Supporting Document'),
         description=(u'Upload any supporting documentation here'),
         required=False,
     )
-
-    additionalDocuments = field.NamedFile(
-        title=(u'Additional Documentation'),
-        description=(u'If you have any additional documentation, upload it here'),
-        required=False,
-    )
+    

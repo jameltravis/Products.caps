@@ -3,5 +3,5 @@
   <object name="Readmission" meta_type="Dexterity FTI"/>
   <object name="ExtraCredits" meta_type="Dexterity FTI"/>
   <object name="LeaveAbs" meta_type="Dexterity FTI"/>
-  <object name="GenPetition" meta_type="Dexterity FTI"/>
+  <object name="GradePetition" meta_type="Dexterity FTI"/>
 </object>
