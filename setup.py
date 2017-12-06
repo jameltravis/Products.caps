@@ -50,6 +50,7 @@ setup(
         'Products.PloneFormGen==1.8.4',
         'collective.pfg.dexterity==1.0.0rc1',
         'collective.z3cform.datagridfield',
+        'collective.importexport',
     ],
     extras_require={
         'test': [
