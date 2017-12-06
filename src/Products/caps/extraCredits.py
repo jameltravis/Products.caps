@@ -52,19 +52,6 @@ class ISemester(model.Schema):
         required=True,
     )
 
-class IPhoneNumbers(model.Schema):
-    """Class for Phone number datagrid"""
-
-    cellPhoneNumber = schema.TextLine(
-        title=(u'Phone Number (Cell)'),
-        required=False,
-    )
-
-    homePhoneNumber = schema.TextLine(
-        title=(u'Phone Number (Home)'),
-        required=False,
-    )
-
 
 class IExtraCredits(model.Schema):
     """Class to create CAPS General Petition"""
@@ -72,17 +59,6 @@ class IExtraCredits(model.Schema):
     title = schema.TextLine(
         title=(u'Name'),
         description=(u'Please enter your First and Last Name'),
-        required=True,
-    )
-
-    petitionReason = schema.Choice(
-        title=(u'Reason for Peition'),
-        values=[
-            (u"Extension INC"),
-            (u"Grade Appeal"),
-            (u"Grade Change"),
-            (u"Other")
-            ],
         required=True,
     )
 
@@ -100,11 +76,13 @@ class IExtraCredits(model.Schema):
         max=10,
     )
 
-    # Data grid for semester and year
-    form.widget(phoneNumbers=DataGridFieldFactory)
-    phoneNumbers = schema.List(
-        title=(u'Please enter your phone numbers'),
-        value_type=DictRow(title=(u'Phone numbers'), schema=IPhoneNumbers),
+    cellPhoneNumber = schema.TextLine(
+        title=(u'Phone Number (Cell)'),
+        required=False,
+    )
+
+    homePhoneNumber = schema.TextLine(
+        title=(u'Phone Number (Home)'),
         required=False,
     )
 
