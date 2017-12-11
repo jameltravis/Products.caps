@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<object name="portal_catalog">
+  <index name="title" meta_type="FieldIndex">
+    <indexed_attr value="title"/>
+  </index>
+  <index name="emplID" meta_type="FieldIndex">
+    <indexed_attr value="emplID"/>
+  </index>
+  <index name="petitionReason" meta_type="KeywordIndex">
+    <indexed_attr value="petitionReason"/>
+  </index>
+    <index name="commentsToStudent" meta_type="KeywordIndex">
+    <indexed_attr value="commentsToStudent"/>
+  </index>
+    <index name="staffComments" meta_type="KeywordIndex">
+    <indexed_attr value="staffComments"/>
+  </index>
+
+  <column value="petitionReason" />
+  <column value="title" />
+  <column value="emplID" />
+  <column value="commentsToStudent" />
+  <column value="staffComments" />
+</object>
