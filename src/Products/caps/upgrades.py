@@ -9,8 +9,9 @@ Readmissions is a stand alone folder because it requires the ability to change p
 based on an any number of arbitrarly indexed items.
 
 On the off chance that there are content types of interest (CTOI) outside of these folders,
-those CTOI are also gathers and put in their associated folders. At the moment, the code
-is all or nothing.
+those CTOI are also gathers and put in their associated folders.
+
+Note: At the moment, this code is all or nothing.
 """
 
 import logging
@@ -43,7 +44,7 @@ def upgrade_site(setup):
             type='Folder',
             id='readmission',
             title=u'Readmission'
-        )    
+        )
     else:
         sas_folder = portal['sas']
         readmission_folder = portal['readmission']

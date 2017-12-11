@@ -18,4 +18,28 @@
       directory="static"
       />
 
+  <browser:page
+    name="index"
+    for="*"
+    layer="Products.caps.interfaces.IProductsCapsLayer"
+    template="templates/index.pt"
+    permission="zope2.View"
+    />
+
+  <browser:page
+    name="committeeview"
+    for="*"
+    layer="Products.caps.interfaces.IProductsCapsLayer"
+    template="templates/committeeview.pt"
+    permission="zope2.View"
+    />
+
+  <browser:page
+    name="readmissionview"
+    for="*"
+    layer="Products.caps.interfaces.IProductsCapsLayer"
+    template="templates/readmissionview.pt"
+    permission="zope2.View"
+    />
+
 </configure>
