@@ -2,7 +2,7 @@
 <object
     i18n:domain="Products.caps"
     meta_type="Dexterity FTI"
-    name="GradePetition"
+    name="GradeAppeal"
     xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
   <!-- Basic properties -->
@@ -14,7 +14,7 @@
       name="description">Petition for the appeal of a single grade</property>
 
   <property name="allow_discussion">False</property>
-  <property name="factory">GradePetition</property>
+  <property name="factory">GradeAppeal</property>
   <property name="icon_expr"></property>
   <property name="link_target"></property>
 
@@ -30,7 +30,7 @@
   <property name="klass">plone.dexterity.content.Item</property>
   <property name="model_file"></property>
   <property name="model_source"></property>
-  <property name="schema">Products.caps.gradePetition.IGradePetition</property>
+  <property name="schema">Products.caps.gradeAppeal.IGradeAppeal</property>
 
   <!-- Enabled behaviors -->
   <property name="behaviors">
@@ -38,7 +38,7 @@
   </property>
 
   <!-- View information -->
-  <property name="add_view_expr">string:${folder_url}/++add++GradePetition</property>
+  <property name="add_view_expr">string:${folder_url}/++add++GradeAppeal</property>
   <property name="immediate_view">view</property>
   <property name="default_view">view</property>
   <property name="default_view_fallback">False</property>

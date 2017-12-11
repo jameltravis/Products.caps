@@ -10,7 +10,7 @@ based on an any number of arbitrarly indexed items.
 
 On the off chance that there are content types of interest (CTOI) outside of these folders,
 those CTOI are also gathers and put in their associated folders. At the moment, the code
-is all or nothing. 
+is all or nothing.
 """
 
 import logging
