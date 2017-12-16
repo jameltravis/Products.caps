@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Upgrade module for Products.caps .
 
-Upon being run, Two directories (folderish objects) will be created at the root level:
+Upon being run, two directories (folderish objects) will be created at the root level:
 Readmission and Student academic Services. The latter will house the following sub
 directories: Extra-Credits, Leave of Absence and Grade Appeal.
 

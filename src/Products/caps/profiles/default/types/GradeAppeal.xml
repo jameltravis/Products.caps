@@ -30,7 +30,7 @@
   <property name="klass">plone.dexterity.content.Item</property>
   <property name="model_file"></property>
   <property name="model_source"></property>
-  <property name="schema">Products.caps.gradeAppeal.IGradeAppeal</property>
+  <property name="schema">Products.caps.grade_appeal.IGradeAppeal</property>
 
   <!-- Enabled behaviors -->
   <property name="behaviors">

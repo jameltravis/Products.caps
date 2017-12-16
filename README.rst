@@ -6,7 +6,7 @@
 Products.caps
 ==============================================================================
 
-This product is used for the rule-bending committee at my institution. The product contains forms, workflows and the creation of files and records in case the data needs to be reviewed at a later time.
+This product is used for the rule-bending committee at my institution. The product contains forms, workflows and tools to create spreadsheets so the foos and the bars can analyze data.
 
 Features
 --------

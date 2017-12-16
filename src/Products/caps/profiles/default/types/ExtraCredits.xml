@@ -8,10 +8,12 @@
   <!-- Basic properties -->
   <property
       i18n:translate=""
-      name="title">ExtraCredits</property>
+      name="title">Petition for Extra Credits</property>
   <property
       i18n:translate=""
-      name="description"></property>
+      name="description">
+        Request to enroll in more than 15 credits in a semester.
+      </property>
 
   <property name="allow_discussion">False</property>
   <property name="factory">ExtraCredits</property>
@@ -30,7 +32,7 @@
   <property name="klass">plone.dexterity.content.Item</property>
   <property name="model_file"></property>
   <property name="model_source"></property>
-  <property name="schema">Products.caps.extraCredits.IExtraCredits</property>
+  <property name="schema">Products.caps.extra_credits.IExtraCredits</property>
 
   <!-- Enabled behaviors -->
   <property name="behaviors">

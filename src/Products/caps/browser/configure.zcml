@@ -18,6 +18,22 @@
       directory="static"
       />
 
+  <!-- traininig view -->
+  <browser:page
+    name="training"
+    for="*"
+    template="templates/training.pt"
+    permission="zope2.View"
+    />
+
+  <browser:page
+    for="*"
+    name="abunchofmacros"
+    template="templates/macros.pt"
+    permission="zope2.View"
+    />
+
+  <!-- landing page view -->
   <browser:page
     name="index"
     for="*"
@@ -26,19 +42,12 @@
     permission="zope2.View"
     />
 
+  <!-- committee main page -->
   <browser:page
     name="committeeview"
     for="*"
     layer="Products.caps.interfaces.IProductsCapsLayer"
     template="templates/committeeview.pt"
-    permission="zope2.View"
-    />
-
-  <browser:page
-    name="readmissionview"
-    for="*"
-    layer="Products.caps.interfaces.IProductsCapsLayer"
-    template="templates/readmissionview.pt"
     permission="zope2.View"
     />
 

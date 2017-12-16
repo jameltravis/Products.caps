@@ -8,7 +8,7 @@
   <!-- Basic properties -->
   <property
       i18n:translate=""
-      name="title">Retroactive Withdrawal</property>
+      name="title">LOA or Retroactive Withdrawal</property>
   <property
       i18n:translate=""
       name="description">Petition for Retroactive Withdrawal or Leave of Absense</property>
@@ -30,7 +30,7 @@
   <property name="klass">plone.dexterity.content.Item</property>
   <property name="model_file"></property>
   <property name="model_source"></property>
-  <property name="schema">Products.caps.leaveAbs.ILeaveAbs</property>
+  <property name="schema">Products.caps.leave_abs.ILeaveAbs</property>
 
   <!-- Enabled behaviors -->
   <property name="behaviors">
