@@ -8,10 +8,10 @@
   <!-- Basic properties -->
   <property
       i18n:translate=""
-      name="title">Readmission</property>
+      name="title">Petition for Readmission</property>
   <property
       i18n:translate=""
-      name="description"></property>
+      name="description">Student application for readmission to the College</property>
 
   <property name="allow_discussion">False</property>
   <property name="factory">Readmission</property>

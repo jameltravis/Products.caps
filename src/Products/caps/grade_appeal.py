@@ -9,8 +9,6 @@ from zope import schema
 from plone.supermodel import model
 from plone.directives import form
 from plone.namedfile import field
-from plone.autoform import directives
-from plone.autoform.d
 from collective.z3cform.datagridfield import DictRow
 from collective.z3cform.datagridfield.datagridfield import DataGridFieldFactory
 
@@ -133,4 +131,3 @@ class IGradeAppeal(model.Schema):
         description=(u'Upload any supporting documentation here'),
         required=False,
     )
-

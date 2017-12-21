@@ -23,21 +23,21 @@ logger = logging.getLogger(__name__)
 def upgrade_site(setup):
 
     """
-    creates SAS main folder in portal, extra-credits folder in SAS,
-    grade-appeals folder in SAS, loa-petition portal in SAS,
+    creates CAPS main folder in portal, extra-credits folder in CAPS,
+    grade-appeals folder in CAPS, loa-petition portal in CAPS,
     and readmission folder in portal
     """
 
     setup.runImportStepFromProfile(default_profile, 'typeinfo')
     portal = api.portal.get()
 
-    # Create 'Student Academic Services' (SAS) folder, if needed
-    if 'sas' and 'readmission' not in portal:
-        sas_folder = api.content.create(
+    # Create 'CAPS'folder, if needed
+    if 'caps' and 'readmission' not in portal:
+        caps_folder = api.content.create(
             container=portal,
             type='Folder',
-            id='sas',
-            title=u'Student Academic Services'
+            id='caps',
+            title=u'CAPS'
         )
         readmission_folder = api.content.create(
             container=portal,
@@ -46,33 +46,33 @@ def upgrade_site(setup):
             title=u'Readmission'
         )
     else:
-        sas_folder = portal['sas']
+        caps_folder = portal['caps']
         readmission_folder = portal['readmission']
 
-    # Create 'Extra Credits' folder in 'SAS', if needed
-    if 'extra-credits' and 'grade-appeals' and 'loa-petitions' not in sas_folder:
+    # Create 'Extra Credits' folder in 'CAPS', if needed
+    if 'extra-credits' and 'grade-appeals' and 'loa-petitions' not in caps_folder:
         extraCredits_folder = api.content.create(
-            container=sas_folder,
+            container=caps_folder,
             type='Folder',
             id='extra-credits',
             title=u'Extra Credits',
         )
         gradeAppeal_folder = api.content.create(
-            container=sas_folder,
+            container=caps_folder,
             type='Folder',
             id='grade-appeals',
             title=u'Grade Appeals',
         )
         loa_folder = api.content.create(
-            container=sas_folder,
+            container=caps_folder,
             type='Folder',
             id='loa-petitions',
             title=u'Leave of Absence',
         )
     else:
-        extraCredits_folder = sas_folder['extra-credits']
-        gradeAppeal_folder = sas_folder['Grade Appeals']
-        loa_folder = sas_folder['loa-petitions']
+        extraCredits_folder = caps_folder['extra-credits']
+        gradeAppeal_folder = caps_folder['Grade Appeals']
+        loa_folder = caps_folder['loa-petitions']
 
     # Put Readmission objects in readmission folder
     brainsReadmission = api.content.find(portal_type='Readmission')
@@ -92,7 +92,7 @@ def upgrade_site(setup):
             safe_id=True,
         )
 
-    # Put Readmission objects in readmission folder
+    # Put Extra Credits objects in readmission folder
     brainsExtraCredits = api.content.find(portal_type='ExtraCredits')
     for brainsExtraCredits in brainsExtraCredits:
         if ExtraCredits_url in brainsExtraCredits.getURL():

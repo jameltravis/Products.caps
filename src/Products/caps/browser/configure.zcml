@@ -20,35 +20,46 @@
 
   <!-- traininig view -->
   <browser:page
-    name="training"
-    for="*"
-    template="templates/training.pt"
-    permission="zope2.View"
-    />
+      name="training"
+      for="*"
+      class=".views.DemoView"
+      template="templates/training.pt"
+      permission="zope2.View"
+      />
 
   <browser:page
-    for="*"
-    name="abunchofmacros"
-    template="templates/macros.pt"
-    permission="zope2.View"
-    />
+      for="*"
+      name="abunchofmacros"
+      template="templates/macros.pt"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      name="talkview"
+      for="*"
+      layer="zope.interface.Interface"
+      class=".views.TalkView"
+      template="templates/talkview.pt"
+      permission="zope2.View"
+      />
 
   <!-- landing page view -->
   <browser:page
-    name="index"
-    for="*"
-    layer="Products.caps.interfaces.IProductsCapsLayer"
-    template="templates/index.pt"
-    permission="zope2.View"
-    />
+      name="index"
+      for="*"
+      layer="Products.caps.interfaces.IProductsCapsLayer"
+      template="templates/index.pt"
+      permission="zope2.View"
+      />
 
   <!-- committee main page -->
   <browser:page
-    name="committeeview"
-    for="*"
-    layer="Products.caps.interfaces.IProductsCapsLayer"
-    template="templates/committeeview.pt"
-    permission="zope2.View"
-    />
+      name="committeeview"
+      for="*"
+      layer="Products.caps.interfaces.IProductsCapsLayer"
+      class=".committee_dash.CommitteeView"
+      template="templates/committeeview.pt"
+      permission="zope2.View"
+      />
 
 </configure>

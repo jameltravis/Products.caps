@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <object name="portal_catalog">
-  <!-- General Information -->
   <index name="title" meta_type="FieldIndex">
     <indexed_attr value="title"/>
   </index>
@@ -52,12 +51,6 @@
     <indexed_attr value="courseSection"/>
   </index>
   <!-- Index for Staff Only fields -->
-  <index name="commentsToStudent" meta_type="KeywordIndex">
-    <indexed_attr value="commentsToStudent"/>
-  </index>
-  <index name="staffComments" meta_type="KeywordIndex">
-    <indexed_attr value="staffComments"/>
-  </index>
   <!-- Columns -->
   <column value="title" />
   <column value="emplID" />
