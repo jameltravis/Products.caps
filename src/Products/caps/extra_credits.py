@@ -3,6 +3,7 @@
 
 from Products.caps import _
 from zope import schema
+from zope.interface import Invalid
 # from zope import interface
 # from zope.interface import Interface
 # from zope.publisher.interfaces.browser import IDefaultBrowserLayer
@@ -13,6 +14,16 @@ from plone.autoform import directives
 from collective.z3cform.datagridfield import DictRow
 from collective.z3cform.datagridfield.datagridfield import DataGridFieldFactory
 
+
+def readmission_limit(value):
+    """determine if field value exists in catalog index"""
+    catalog = api.portal.get_tool('portal_catalog')
+    results = catalog.searchResults(emplID=(value))
+    if results != -1:
+        raise Invalid(
+            _(u'Application on file. Please contact OSAS (osas@york.cuny.edu) for further help')
+            )
+    return True
 
 class ICourses(model.Schema):
     """Class for 'Course' DataGrid schema"""
@@ -57,24 +68,35 @@ class ISemester(model.Schema):
 class IExtraCredits(model.Schema):
     """Class to create CAPS Petition for Excess Credits"""
 
-    title = schema.TextLine(
-        title=(u'Name'),
-        description=(u'Please enter your First and Last Name'),
+    firstName = schema.TextLine(
+        title=(u'First Name'),
+        description=(u'Please enter your First Name'),
         required=True,
+    )
+
+    LastName = schema.TextLine(
+        title=(u'First Name'),
+        description=(u'Please enter your Last Name'),
+        required=True,
+    )
+
+    petitionType = schema.Choice(
+        title=(u'Petition For: '),
+        values=[(u'Extra Credits')],
     )
 
     email = schema.TextLine(
         title=(u'Email Address'),
         required=True,
-        # contraint=email_constraint,
+        contraint=email_constraint,
     )
 
-    emplID = schema.Int(
+    emplID = schema.TextLine(
         title=(u'Empl ID'),
         description=(u'Enter your CUNYFirst Empl ID'),
         required=True,
-        min=10000000,
-        max=99999999,
+        min_length=8,
+        max_length=8,
     )
 
     cellPhoneNumber = schema.TextLine(
@@ -102,8 +124,8 @@ class IExtraCredits(model.Schema):
         title=(u'Zip Code'),
         description=(u'Enter your 5 digit zip code'),
         required=True,
-        min=501,
-        max=99999,
+        min_length=8,
+        max_length=8,
     )
 
     birthday = schema.Date(

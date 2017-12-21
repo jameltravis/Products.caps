@@ -3,6 +3,7 @@
 
 from Products.caps import _
 from zope import schema
+from zope.interface import Invalid
 # from zope import interface
 # from zope.interface import Interface
 # from zope.publisher.interfaces.browser import IDefaultBrowserLayer
@@ -12,6 +13,16 @@ from plone.namedfile import field
 from collective.z3cform.datagridfield import DictRow
 from collective.z3cform.datagridfield.datagridfield import DataGridFieldFactory
 
+
+def readmission_limit(value):
+    """determine if field value exists in catalog index"""
+    catalog = api.portal.get_tool('portal_catalog')
+    results = catalog.searchResults(emplID=(value))
+    if results != -1:
+        raise Invalid(
+            _(u'Application on file. Please contact OSAS (osas@york.cuny.edu) for further help')
+            )
+    return True
 
 class ISemester(model.Schema):
     """Used for semester and year schema"""
@@ -36,9 +47,15 @@ class ISemester(model.Schema):
 class IGradeAppeal(model.Schema):
     """Class to create Grade Appeal schema"""
 
-    title = schema.TextLine(
-        title=(u'Name'),
-        description=(u'Please enter your First and Last Name'),
+    firstName = schema.TextLine(
+        title=(u'First Name'),
+        description=(u'Please enter your First Name'),
+        required=True,
+    )
+
+    LastName = schema.TextLine(
+        title=(u'First Name'),
+        description=(u'Please enter your Last Name'),
         required=True,
     )
 
@@ -53,10 +70,16 @@ class IGradeAppeal(model.Schema):
         required=True,
     )
 
+    petitionType = schema.Choice(
+        title=(u'Petition For: '),
+        values=[(u'Grade Appeal')],
+    )
+
+
     email = schema.TextLine(
         title=(u'Email Address'),
         required=True,
-        # contraint=email_constraint,
+        contraint=email_constraint,
     )
 
     emplID = schema.Int(

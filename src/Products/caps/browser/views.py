@@ -2,7 +2,7 @@ from Products.Five.browser import BrowserView
 
 class DemoView(BrowserView):
     """class used for DemoView in training"""
-    
+
     def the_title(self):
         return u'A list of talks: '
 

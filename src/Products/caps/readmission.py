@@ -21,7 +21,7 @@ def readmission_limit(value):
     results = catalog.searchResults(emplID=(value))
     if results != -1:
         raise Invalid(
-            _(u'We have your application on file. Please contact OSAS (osas@york.cuny.edu) for further help')
+            _(u'Application on file. Please contact OSAS (osas@york.cuny.edu) for further help')
             )
     return True
 
@@ -68,11 +68,23 @@ class IPhoneNumbers(model.Schema):
 class IReadmission(model.Schema):
     """Class to create CAPS Readmission petition"""
 
-    title = schema.TextLine(
-        title=(u'Name'),
-        description=(u'Please enter your First and Last Name'),
+    firstName = schema.TextLine(
+        title=(u'First Name'),
+        description=(u'Please enter your First Name'),
         required=True,
     )
+
+    LastName = schema.TextLine(
+        title=(u'First Name'),
+        description=(u'Please enter your Last Name'),
+        required=True,
+    )
+
+    petitionType = schema.Choice(
+        title=(u'Petition For: '),
+        values=[(u'Readmission')],
+    )
+
 
     email = schema.TextLine(
         title=(u'Email Address'),
