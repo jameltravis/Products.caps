@@ -5,9 +5,9 @@ from Products.caps import _
 from zope import schema
 from zope.interface import Invalid
 from plone import api
-# from zope import interface
-# from zope.interface import Interface
-# from zope.publisher.interfaces.browser import IDefaultBrowserLayer
+from zope import interface
+from zope.interface import Interface
+from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from plone.supermodel import model
 from plone.directives import form
 from plone.namedfile import field
@@ -68,15 +68,9 @@ class IPhoneNumbers(model.Schema):
 class IReadmission(model.Schema):
     """Class to create CAPS Readmission petition"""
 
-    firstName = schema.TextLine(
-        title=(u'First Name'),
-        description=(u'Please enter your First Name'),
-        required=True,
-    )
-
-    LastName = schema.TextLine(
-        title=(u'First Name'),
-        description=(u'Please enter your Last Name'),
+    Title = schema.TextLine(
+        title=(u'Name'),
+        description=(u'Please enter your First and Last Name'),
         required=True,
     )
 
