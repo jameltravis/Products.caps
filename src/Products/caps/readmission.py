@@ -21,11 +21,8 @@ from collective.z3cform.datagridfield.datagridfield import DataGridFieldFactory
 
 def readmission_limit(value):
     """determine if field value exists in catalog index"""
-    # contentType = api.content.find(portal_type='talk')
-    # catalog = api.portal.get_tool('portal_catalog')
-    # results = catalog.searchResults(emplID=(value))
     results = []
-    brains = api.content.find(context=self.context, portal_type='Readmission')
+    brains = api.content.find(portal_type='Readmission')
     for brain in brains:
         if value == brains.emplID:
             results.append(brains.emplID)

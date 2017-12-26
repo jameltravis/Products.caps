@@ -7,12 +7,16 @@
 <body>
     <metal:content-core fill-slot="content-core">
         <h1>Welcome ${current_user}</h1>
-
-        <div tal:condition="python: context.details"
-             tal:content="structure python: context.details.output" />
-
-        <div tal:content="python: context.speaker">
-            User
+        <div>
+            <table>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Empl ID</th>
+                    <th>Review State</th>
+                </tr>
+                <tr tal:repeat="student python:view.readmission_petitions()">
+                </tr>
+            </table>
         </div>
     </metal:content-core>
 </body>
