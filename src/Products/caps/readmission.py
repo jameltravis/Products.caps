@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
-"""CAPS Readmission form."""
+"""CAPS Readmission form.
+This form will be used as a one time application for readmission.
+If the student's Empl ID is in the portal AND they have submitted
+an application in the past, a validator will prevent them from submitting
+the form."""
 
 from Products.caps import _
 from zope import schema
@@ -17,19 +21,31 @@ from collective.z3cform.datagridfield.datagridfield import DataGridFieldFactory
 
 def readmission_limit(value):
     """determine if field value exists in catalog index"""
-    catalog = api.portal.get_tool('portal_catalog')
-    results = catalog.searchResults(emplID=(value))
-    if results != -1:
-        raise Invalid(
-            _(u'Application on file. Please contact OSAS (osas@york.cuny.edu) for further help')
+    # contentType = api.content.find(portal_type='talk')
+    # catalog = api.portal.get_tool('portal_catalog')
+    # results = catalog.searchResults(emplID=(value))
+    results = []
+    brains = api.content.find(context=self.context, portal_type='Readmission')
+    for brain in brains:
+        if value == brains.emplID:
+            results.append(brains.emplID)
+        if len(results) <= 3:
+            raise Invalid(
+                _(u'Application on file. Please contact OSAS (osas@york.cuny.edu) for further help')
             )
-    return True
+        return True
+
 
 def email_contraint(value):
     """Email validator"""
     if '.' not in value and '@' not in value:
         raise Invalid(_(u"Sorry, you've entered an invalid email address"))
     return True
+
+def choice_constraint(value):
+    """if the selection is left on default value, raise error message"""
+    if value == (u'Select One'):
+        raise Invalid(_(u"Please select a choice"))
 
 
 class ISemester(model.Schema):
@@ -76,7 +92,12 @@ class IReadmission(model.Schema):
 
     petitionType = schema.Choice(
         title=(u'Petition For: '),
-        values=[(u'Readmission')],
+        values=[
+            (u'Select One'),
+            (u'Readmission'),
+            (u'Appeal of Dissmisal'),
+            ],
+        constraint=choice_constraint,
     )
 
 
