@@ -4,4 +4,5 @@
   <object name="ExtraCredits" meta_type="Dexterity FTI"/>
   <object name="LeaveAbs" meta_type="Dexterity FTI"/>
   <object name="GradeAppeal" meta_type="Dexterity FTI"/>
+  <object nmae="CAPSFolder" meta_type="Dexterity FTI"/>
 </object>

@@ -2,21 +2,21 @@
 <object
     i18n:domain="Products.caps"
     meta_type="Dexterity FTI"
-    name="ExtraCredits"
+    name="CAPSFolder"
     xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
   <!-- Basic properties -->
   <property
       i18n:translate=""
-      name="title">Petition for Extra Credits</property>
+      name="title">CAPS Folder</property>
   <property
       i18n:translate=""
       name="description">
-        Request to enroll in more than 15 credits in a semester.
+        CAPS Committee Dashboard, view petitions.
       </property>
 
   <property name="allow_discussion">False</property>
-  <property name="factory">ExtraCredits</property>
+  <property name="factory">CAPSFolder</property>
   <property name="icon_expr"></property>
   <property name="link_target"></property>
 
@@ -25,28 +25,28 @@
     <!-- <element value="" />-->
   </property>
   <property name="filter_content_types">True</property>
-  <property name="global_allow">True</property>
+  <property name="global_allow">False</property>
 
   <!-- Schema, class and security -->
   <property name="add_permission">cmf.AddPortalContent</property>
-  <property name="klass">plone.dexterity.content.Item</property>
+  <property name="klass">plone.dexterity.content.Container</property>
   <property name="model_file"></property>
   <property name="model_source"></property>
-  <property name="schema">Products.caps.extra_credits.IExtraCredits</property>
+  <property name="schema">Products.caps.caps_folder.ICAPSFolder</property>
 
   <!-- Enabled behaviors -->
   <property name="behaviors">
     <element value="plone.app.content.interfaces.INameFromTitle" />
-    <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
   </property>
 
   <!-- View information -->
-  <property name="add_view_expr">string:${folder_url}/++add++ExtraCredits</property>
+  <property name="add_view_expr">string:${folder_url}/++add++CAPSFolder</property>
   <property name="immediate_view">view</property>
-  <property name="default_view">view</property>
+  <property name="default_view">committeeview</property>
   <property name="default_view_fallback">False</property>
   <property name="view_methods">
-    <element value="talkview" />
+    <element value="committeeview" />
+    <element value="view"/>
   </property>
 
   <!-- Method aliases -->

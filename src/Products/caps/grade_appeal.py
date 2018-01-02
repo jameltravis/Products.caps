@@ -14,15 +14,22 @@ from collective.z3cform.datagridfield import DictRow
 from collective.z3cform.datagridfield.datagridfield import DataGridFieldFactory
 
 
-def readmission_limit(value):
-    """determine if field value exists in catalog index"""
-    catalog = api.portal.get_tool('portal_catalog')
-    results = catalog.searchResults(emplID=(value))
-    if results != -1:
-        raise Invalid(
-            _(u'Application on file. Please contact OSAS (osas@york.cuny.edu) for further help')
-            )
-    return True
+# def readmission_limit(value):
+#     """determine if field value exists in catalog index"""
+#     catalog = api.portal.get_tool('portal_catalog')
+#     results = catalog.searchResults(emplID=(value))
+#     if results != -1:
+#         raise Invalid(
+#             _(u'Application on file. Please contact OSAS (osas@york.cuny.edu) for further help')
+#             )
+#     return True
+
+# def email_constraint(value):
+#     """Email validator"""
+#     if '.' not in value and '@' not in value:
+#         raise Invalid(_(u"Sorry, you've entered an invalid email address"))
+#     return True
+
 
 class ISemester(model.Schema):
     """Used for semester and year schema"""
@@ -47,15 +54,9 @@ class ISemester(model.Schema):
 class IGradeAppeal(model.Schema):
     """Class to create Grade Appeal schema"""
 
-    firstName = schema.TextLine(
-        title=(u'First Name'),
-        description=(u'Please enter your First Name'),
-        required=True,
-    )
-
-    LastName = schema.TextLine(
-        title=(u'First Name'),
-        description=(u'Please enter your Last Name'),
+    Title = schema.TextLine(
+        title=(u'Name'),
+        description=(u'Please enter your First and Last Name'),
         required=True,
     )
 
@@ -68,6 +69,7 @@ class IGradeAppeal(model.Schema):
             (u"Other")
             ],
         required=True,
+        # constraint=
     )
 
     petitionType = schema.Choice(
@@ -79,15 +81,15 @@ class IGradeAppeal(model.Schema):
     email = schema.TextLine(
         title=(u'Email Address'),
         required=True,
-        contraint=email_constraint,
+        # constraint=email_constraint,
     )
 
-    emplID = schema.Int(
+    emplID = schema.TextLine(
         title=(u'Empl ID'),
         description=(u'Enter your CUNYFirst Empl ID'),
         required=True,
-        min=10000000,
-        max=99999999,
+        min_length=8,
+        max_length=8,
     )
 
     cellPhoneNumber = schema.TextLine(
@@ -111,12 +113,12 @@ class IGradeAppeal(model.Schema):
         required=True,
     )
 
-    zipCode = schema.Int(
+    zipCode = schema.TextLine(
         title=(u'Zip Code'),
         description=(u'Enter your 5 digit zip code'),
         required=True,
-        min=501,
-        max=99999,
+        min_length=5,
+        max_length=9,
     )
 
     birthday = schema.Date(
@@ -144,12 +146,12 @@ class IGradeAppeal(model.Schema):
         required=True,
     )
 
-    studentStatement = field.NamedFile(
+    studentStatement = field.NamedBlobFile(
         title=(u'Personal Statement'),
         required=True,
     )
 
-    supportingDocument = field.NamedFile(
+    supportingDocument = field.NamedBlobFile(
         title=(u'Supporting Document'),
         description=(u'Upload any supporting documentation here'),
         required=False,

@@ -6,15 +6,10 @@ from zope.security import checkPermission
 from plone import api
 
 
-class DashView(BrowserView):
+class DashView(DefaultView):
     """
-    Depending on the role of the staff viewing the petitions,
-    they will see workflow state-based content
+    Class for each petition type
     """
-
-    def canRequestReview(self):
-        """check permission so we can display permission-dependant material"""
-        return checkPermission('cmf.RequestReview', self.context)
 
     def readmission_petitions(self):
         """Readmission petitions"""
@@ -91,3 +86,4 @@ class DashView(BrowserView):
                 'review_state': brain.review_state
             })
         return results
+    

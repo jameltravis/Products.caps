@@ -1,11 +1,14 @@
 <?xml version="1.0"?>
 <object name="portal_catalog">
-  <index name="title" meta_type="FieldIndex">
-    <indexed_attr value="title"/>
+  <index name="Title" meta_type="FieldIndex">
+    <indexed_attr value="Title"/>
   </index>
   <index name="emplID" meta_type="FieldIndex">
     <indexed_attr value="emplID"/>
   </index>
+  <!-- <index name="readmissionEmplID" meta_type="FieldIndex">
+    <indexed_attr value="readmissionEmplID"/>
+  </index> -->
   <index name="email" meta_type="KeywordIndex">
     <indexed_attr value="email"/>
   </index>
@@ -52,7 +55,7 @@
   </index>
   <!-- Index for Staff Only fields -->
   <!-- Columns -->
-  <column value="title" />
+  <column value="Title" />
   <column value="emplID" />
   <column value="email" />
   <column value="semester" />

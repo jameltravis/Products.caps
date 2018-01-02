@@ -9,3 +9,7 @@ from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
 class IProductsCapsLayer(IDefaultBrowserLayer):
     """Marker interface that defines a browser layer."""
+
+
+class ICAPS(Interface):
+    """Marker interface for CAPS dashboard"""
