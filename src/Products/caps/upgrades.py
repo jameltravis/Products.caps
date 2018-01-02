@@ -32,7 +32,7 @@ def upgrade_site(setup):
     portal = api.portal.get()
 
     # Create 'CAPS'folder, if needed
-    if 'caps' and 'readmission' not in portal:
+    if 'caps' not in portal:
         caps_folder = api.content.create(
             container=portal,
             type='Folder',
@@ -50,7 +50,7 @@ def upgrade_site(setup):
         readmission_folder = portal['readmission']
 
     # Create 'Extra Credits' folder in 'CAPS', if needed
-    if 'extra-credits' and 'grade-appeals' and 'loa-petitions' not in caps_folder:
+    if 'extra-credits' and 'readmissions' and 'grade-appeals' and 'loa-petitions' not in caps_folder:
         extraCredits_folder = api.content.create(
             container=caps_folder,
             type='Folder',
@@ -68,6 +68,12 @@ def upgrade_site(setup):
             type='Folder',
             id='loa-petitions',
             title=u'Leave of Absence',
+        )
+        readmissions_folder = api.content.create(
+            container=caps_folder,
+            type='Folder',
+            id='readmissions',
+            title=u'Readmissions',
         )
     else:
         extraCredits_folder = caps_folder['extra-credits']

@@ -10,7 +10,7 @@ from zope import schema
 from zope import interface
 # from zope.interface import Invalid
 # from zope.interface import Interface
-from zope.publisher.interfaces.browser import IDefaultBrowserLayer
+# from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from plone import api
 from plone.supermodel import model
 from plone.directives import form
@@ -22,7 +22,6 @@ def readmission_limit(value):
     """
     determine if field value exists in catalog index
     """
-    # brains = api.content.find(portal_type='Readmission')
     catalog = api.portal.get_tool('portal_catalog')
     results = catalog.searchResults(**{'portal_type': 'Readmission', 'emplID': value})
     if len(results) > 3:
@@ -109,7 +108,7 @@ class IReadmission(model.Schema):
     email = schema.TextLine(
         title=(u'Email Address'),
         required=True,
-        constraint=email_constraint,
+        # constraint=email_constraint,
     )
 
     emplID = schema.TextLine(
