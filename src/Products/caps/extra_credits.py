@@ -73,17 +73,17 @@ class ISemester(model.Schema):
 class IExtraCredits(model.Schema):
     """Class to create CAPS Petition for Excess Credits"""
 
-    firstName = schema.TextLine(
+    title = schema.TextLine(
         title=(u'First Name'),
-        description=(u'Please enter your First Name'),
+        description=(u'Please enter your First and Last Name'),
         required=True,
     )
 
-    LastName = schema.TextLine(
-        title=(u'Last Name'),
-        description=(u'Please enter your Last Name'),
-        required=True,
-    )
+    # LastName = schema.TextLine(
+    #     title=(u'Last Name'),
+    #     description=(u'Please enter your Last Name'),
+    #     required=True,
+    # )
 
     petitionType = schema.Choice(
         title=(u'Petition For: '),

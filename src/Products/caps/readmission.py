@@ -1,27 +1,32 @@
 # -*- coding: utf-8 -*-
 """CAPS Readmission form.
+
 This form will be used as a one time application for readmission.
 If the student's Empl ID is in the portal AND they have submitted
 an application in the past, a validator will prevent them from submitting
-the form."""
+the form.
+
+The structure of the file from top to bottom is Validator functions,
+Datagridfield classes, and Content type Schema.
+"""
 
 from Products.caps import _
+from plone import api
+from plone.supermodel import model
+from plone.directives import form
+from plone.namedfile import field
+from plone.dexterity.content import Item
+from plone.app.content.interfaces import INameFromTitle
 from zope import schema
 from zope import interface
 # from zope.interface import Invalid
 # from zope.interface import Interface
 # from zope.publisher.interfaces.browser import IDefaultBrowserLayer
-from plone import api
-from plone.supermodel import model
-from plone.directives import form
-from plone.namedfile import field
 from collective.z3cform.datagridfield import DictRow
 from collective.z3cform.datagridfield.datagridfield import DataGridFieldFactory
 
 def readmission_limit(value):
-    """
-    determine if field value exists in catalog index
-    """
+    """determine if field value exists in catalog index."""
     catalog = api.portal.get_tool('portal_catalog')
     results = catalog.searchResults(**{'portal_type': 'Readmission', 'emplID': value})
     if len(results) > 3:
@@ -46,8 +51,40 @@ def choice_constraint(value):
         return True
 
 
+class GenerateTitle(Item):
+    """Returns content type title."""
+
+    @property
+    def title(self):
+        """Checks for name fields and returns 'lastname, firstname'. """
+        if hasattr(self, 'lastName') and hasattr(self, 'firstName'):
+            return self.lastName + ', ' + self.firstName
+        else:
+            return 'no title'
+
+    def setTitle(self, value):
+        """Override method in CMFDefault.DublinCore"""
+        return
+
+
+class INameFromPersonNames(INameFromTitle):
+    def title():
+        """Return a processed title"""
+
+class NameFromPersonNames(object):
+    # implements(INameFromPersonNames)
+
+    def __init__(self, context):
+        self.context = context
+
+    @property
+    def title(self):
+        """Returns first and last name as object ID, I assume"""
+        return self.context.lastName + ' ' + self.context.firstName
+
+
 class ISemester(model.Schema):
-    """Used for semester and year schema"""
+    """Generates 'Semester' DataGridField."""
 
     semester = schema.Choice(
         title=(u'Semester'),
@@ -66,7 +103,7 @@ class ISemester(model.Schema):
     )
 
 class IPhoneNumbers(model.Schema):
-    """Class for Phone number datagrid"""
+    """Used for Phone number datagrid"""
 
     cellPhoneNumber = schema.TextLine(
         title=(u'Phone Number (Cell)'),
@@ -80,7 +117,7 @@ class IPhoneNumbers(model.Schema):
 
 
 class IReadmission(model.Schema):
-    """Class to create CAPS Readmission petition"""
+    """Used to create CAPS Readmission petition."""
 
     firstName = schema.TextLine(
         title=(u'First Name'),
@@ -104,11 +141,10 @@ class IReadmission(model.Schema):
         constraint=choice_constraint,
     )
 
-
     email = schema.TextLine(
         title=(u'Email Address'),
         required=True,
-        # constraint=email_constraint,
+        constraint=email_constraint,
     )
 
     emplID = schema.TextLine(
