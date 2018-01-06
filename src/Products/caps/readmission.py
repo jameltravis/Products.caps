@@ -51,36 +51,36 @@ def choice_constraint(value):
         return True
 
 
-class GenerateTitle(Item):
-    """Returns content type title."""
+# class GenerateTitle(Item):
+#     """Returns content type title."""
 
-    @property
-    def title(self):
-        """Checks for name fields and returns 'lastname, firstname'. """
-        if hasattr(self, 'lastName') and hasattr(self, 'firstName'):
-            return self.lastName + ', ' + self.firstName
-        else:
-            return 'no title'
+#     @property
+#     def title(self):
+#         """Checks for name fields and returns 'lastname, firstname'. """
+#         if hasattr(self, 'lastName') and hasattr(self, 'firstName'):
+#             return self.lastName + ', ' + self.firstName
+#         else:
+#             return 'no title'
 
-    def setTitle(self, value):
-        """Override method in CMFDefault.DublinCore"""
-        return
+#     def setTitle(self, value):
+#         """Override method in CMFDefault.DublinCore"""
+#         return
 
 
-class INameFromPersonNames(INameFromTitle):
-    def title():
-        """Return a processed title"""
+# class INameFromPersonNames(INameFromTitle):
+#     def title():
+#         """Return a processed title"""
 
-class NameFromPersonNames(object):
-    # implements(INameFromPersonNames)
+# class NameFromPersonNames(object):
+#     # implements(INameFromPersonNames)
 
-    def __init__(self, context):
-        self.context = context
+#     def __init__(self, context):
+#         self.context = context
 
-    @property
-    def title(self):
-        """Returns first and last name as object ID, I assume"""
-        return self.context.lastName + ' ' + self.context.firstName
+#     @property
+#     def title(self):
+#         """Returns first and last name as object ID, I assume"""
+#         return self.context.lastName + ' ' + self.context.firstName
 
 
 class ISemester(model.Schema):
