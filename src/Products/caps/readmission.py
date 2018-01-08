@@ -51,22 +51,6 @@ def choice_constraint(value):
         return True
 
 
-# class GenerateTitle(Item):
-#     """Returns content type title."""
-
-#     @property
-#     def title(self):
-#         """Checks for name fields and returns 'lastname, firstname'. """
-#         if hasattr(self, 'lastName') and hasattr(self, 'firstName'):
-#             return self.lastName + ', ' + self.firstName
-#         else:
-#             return 'no title'
-
-#     def setTitle(self, value):
-#         """Override method in CMFDefault.DublinCore"""
-#         return
-
-
 # class INameFromPersonNames(INameFromTitle):
 #     def title():
 #         """Return a processed title"""
@@ -119,6 +103,23 @@ class IPhoneNumbers(model.Schema):
 class IReadmission(model.Schema):
     """Used to create CAPS Readmission petition."""
 
+    # @property
+    # def computeFullName(self):
+    #     """Checks for name fields and returns 'lastname, firstname'. """
+    #     if hasattr(self, 'lastName') and hasattr(self, 'firstName'):
+    #         return self.lastName + ', ' + self.firstName
+    #     else:
+    #         return 'no title'
+
+    # def Title(self, value):
+    #     """Override method in CMFDefault.DublinCore"""
+    #     self.title = self.computeFullName()
+
+    # title = schema.TextLine(
+    #     title=(u'Title'),
+    #     description=(u'Please enter your First Name'),
+    #     required=False,
+    # )
     firstName = schema.TextLine(
         title=(u'First Name'),
         description=(u'Please enter your First Name'),

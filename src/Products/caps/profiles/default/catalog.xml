@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
-<object name="portal_catalog">
+<!-- <object name="portal_catalog">
   <index name="Title" meta_type="FieldIndex">
     <indexed_attr value="Title"/>
   </index>
   <index name="emplID" meta_type="FieldIndex">
     <indexed_attr value="emplID"/>
   </index>
-  <!-- <index name="readmissionEmplID" meta_type="FieldIndex">
+  <index name="readmissionEmplID" meta_type="FieldIndex">
     <indexed_attr value="readmissionEmplID"/>
-  </index> -->
-  <index name="email" meta_type="KeywordIndex">
+  </index>
+  <index name="email" meta_type="FieldIndex">
     <indexed_attr value="email"/>
   </index>
   <index name="semester" meta_type="FieldIndex">
@@ -27,34 +27,18 @@
   <index name="petitionReason" meta_type="KeywordIndex">
     <indexed_attr value="petitionReason"/>
   </index>
-  <index name="professor" meta_type="KeywordIndex">
+  <index name="professor" meta_type="FieldIndex">
     <indexed_attr value="professor"/>
   </index>
-  <!-- Student Files -->
-  <index name="studentStatement" meta_type="KeywordIndex">
-    <indexed_attr value="studentStatement"/>
-  </index>
-  <index name="supportingDocument" meta_type="KeywordIndex">
-    <indexed_attr value="supportingDocument"/>
-  </index>
-  <index name="additionalDocuments" meta_type="KeywordIndex">
-    <indexed_attr value="AdditionalDocuments"/>
-  </index>
-  <index name="transcripts" meta_type="KeywordIndex">
-    <indexed_attr value="transcripts"/>
-  </index>
-  <!-- Indexes for courses -->
-  <index name="course" meta_type="KeywordIndex">
+  <index name="course" meta_type="Fieldndex">
     <indexed_attr value="course"/>
   </index>
-  <index name="courseCode" meta_type="KeywordIndex">
+  <index name="courseCode" meta_type="FieldIndex">
     <indexed_attr value="courseCode"/>
   </index>
-  <index name="courseSection" meta_type="KeywordIndex">
+  <index name="courseSection" meta_type="FieldIndex">
     <indexed_attr value="courseSection"/>
   </index>
-  <!-- Index for Staff Only fields -->
-  <!-- Columns -->
   <column value="Title" />
   <column value="emplID" />
   <column value="email" />
@@ -62,9 +46,4 @@
   <column value="SemesterYear" />
   <column value="cellPhoneNumber" />
   <column value="zipCode" />
-  <column value="studentStatement" />
-  <column value="transcripts" />
-  <column value="supportingDocument" />
-  <column value="additionalDocuments" />
-  <column value="staffComments" />
-</object>
+</object> -->
