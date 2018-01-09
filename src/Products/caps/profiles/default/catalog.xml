@@ -1,49 +1,6 @@
 <?xml version="1.0"?>
-<!-- <object name="portal_catalog">
-  <index name="Title" meta_type="FieldIndex">
-    <indexed_attr value="Title"/>
-  </index>
-  <index name="emplID" meta_type="FieldIndex">
-    <indexed_attr value="emplID"/>
-  </index>
-  <index name="readmissionEmplID" meta_type="FieldIndex">
-    <indexed_attr value="readmissionEmplID"/>
-  </index>
-  <index name="email" meta_type="FieldIndex">
-    <indexed_attr value="email"/>
-  </index>
-  <index name="semester" meta_type="FieldIndex">
-    <indexed_attr value="semester"/>
-  </index>
-  <index name="SemesterYear" meta_type="FieldIndex">
-    <indexed_attr value="semesterYear"/>
-  </index>
-  <index name="cellPhoneNumber" meta_type="FieldIndex">
-    <indexed_attr value="cellPhoneNumber"/>
-  </index>
-  <index name="zipCode" meta_type="FieldIndex">
-    <indexed_attr value="zipCode"/>
-  </index>
-  <index name="petitionReason" meta_type="KeywordIndex">
-    <indexed_attr value="petitionReason"/>
-  </index>
-  <index name="professor" meta_type="FieldIndex">
-    <indexed_attr value="professor"/>
-  </index>
-  <index name="course" meta_type="Fieldndex">
-    <indexed_attr value="course"/>
-  </index>
-  <index name="courseCode" meta_type="FieldIndex">
-    <indexed_attr value="courseCode"/>
-  </index>
-  <index name="courseSection" meta_type="FieldIndex">
-    <indexed_attr value="courseSection"/>
-  </index>
-  <column value="Title" />
-  <column value="emplID" />
-  <column value="email" />
-  <column value="semester" />
-  <column value="SemesterYear" />
-  <column value="cellPhoneNumber" />
-  <column value="zipCode" />
-</object> -->
+<object name="portal_catalog" meta_type="Plone Catalog Tool">
+ <index name="emplID" meta_type="FieldIndex">
+  <indexed_attr value="emplID"/>
+ </index>
+</object>

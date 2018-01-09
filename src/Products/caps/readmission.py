@@ -15,13 +15,10 @@ from plone import api
 from plone.supermodel import model
 from plone.directives import form
 from plone.namedfile import field
-from plone.dexterity.content import Item
-from plone.app.content.interfaces import INameFromTitle
+# from plone.dexterity.content import Item
+# from plone.app.content.interfaces import INameFromTitle
 from zope import schema
 from zope import interface
-# from zope.interface import Invalid
-# from zope.interface import Interface
-# from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from collective.z3cform.datagridfield import DictRow
 from collective.z3cform.datagridfield.datagridfield import DataGridFieldFactory
 
@@ -36,6 +33,11 @@ def readmission_limit(value):
     else:
         return True
 
+def name_check(value):
+    """ensures that student enters at least two words/names"""
+    if ' ' not in value:
+        raise interface.Invalid(_(u"Please enter your first AND last name"))
+    return True
 
 def email_constraint(value):
     """Email validator"""
@@ -51,34 +53,20 @@ def choice_constraint(value):
         return True
 
 
-# class INameFromPersonNames(INameFromTitle):
-#     def title():
-#         """Return a processed title"""
-
-# class NameFromPersonNames(object):
-#     # implements(INameFromPersonNames)
-
-#     def __init__(self, context):
-#         self.context = context
-
-#     @property
-#     def title(self):
-#         """Returns first and last name as object ID, I assume"""
-#         return self.context.lastName + ' ' + self.context.firstName
-
-
 class ISemester(model.Schema):
     """Generates 'Semester' DataGridField."""
 
     semester = schema.Choice(
         title=(u'Semester'),
         values=[
+            (u'Select One'),
             (u'Fall'),
             (u'Winter'),
             (u'Spring'),
             (u'Summer'),
         ],
         required=True,
+        constraint=choice_constraint,
     )
 
     semesterYear = schema.TextLine(
@@ -103,33 +91,11 @@ class IPhoneNumbers(model.Schema):
 class IReadmission(model.Schema):
     """Used to create CAPS Readmission petition."""
 
-    # @property
-    # def computeFullName(self):
-    #     """Checks for name fields and returns 'lastname, firstname'. """
-    #     if hasattr(self, 'lastName') and hasattr(self, 'firstName'):
-    #         return self.lastName + ', ' + self.firstName
-    #     else:
-    #         return 'no title'
-
-    # def Title(self, value):
-    #     """Override method in CMFDefault.DublinCore"""
-    #     self.title = self.computeFullName()
-
-    # title = schema.TextLine(
-    #     title=(u'Title'),
-    #     description=(u'Please enter your First Name'),
-    #     required=False,
-    # )
-    firstName = schema.TextLine(
-        title=(u'First Name'),
-        description=(u'Please enter your First Name'),
+    title = schema.TextLine(
+        title=(u'Name'),
+        description=(u'Please enter your First and Last name'),
         required=True,
-    )
-
-    lastName = schema.TextLine(
-        title=(u'Last Name'),
-        description=(u'Please enter your Last Name'),
-        required=True,
+        constraint=name_check,
     )
 
     petitionType = schema.Choice(
