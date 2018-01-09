@@ -15,14 +15,12 @@ from plone import api
 from plone.supermodel import model
 from plone.directives import form
 from plone.namedfile import field
-# from plone.dexterity.content import Item
-# from plone.app.content.interfaces import INameFromTitle
 from zope import schema
 from zope import interface
 from collective.z3cform.datagridfield import DictRow
 from collective.z3cform.datagridfield.datagridfield import DataGridFieldFactory
 
-def readmission_limit(value):
+def readmission_limit_constraint(value):
     """determine if field value exists in catalog index."""
     catalog = api.portal.get_tool('portal_catalog')
     results = catalog.searchResults(**{'portal_type': 'Readmission', 'emplID': value})
@@ -33,7 +31,7 @@ def readmission_limit(value):
     else:
         return True
 
-def name_check(value):
+def name_check_constraint(value):
     """ensures that student enters at least two words/names"""
     if ' ' not in value:
         raise interface.Invalid(_(u"Please enter your first AND last name"))
@@ -95,7 +93,7 @@ class IReadmission(model.Schema):
         title=(u'Name'),
         description=(u'Please enter your First and Last name'),
         required=True,
-        constraint=name_check,
+        constraint=name_check_constraint,
     )
 
     petitionType = schema.Choice(
@@ -120,7 +118,7 @@ class IReadmission(model.Schema):
         required=True,
         min_length=8,
         max_length=8,
-        constraint=readmission_limit,
+        constraint=readmission_limit_constraint,
     )
 
     # Data grid for semester and year
