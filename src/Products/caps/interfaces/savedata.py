@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """Interface for save data action."""
-# from .actions import IAction
+
+from .actions import IAction
 from Products.caps import _
-from Products.caps.actions import IAction
 from plone.autoform import directives
 from plone.z3cform.interfaces import IFormWrapper
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
