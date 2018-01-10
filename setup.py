@@ -15,7 +15,7 @@ long_description = '\n\n'.join([
 setup(
     name='Products.caps',
     version='1.0a1',
-    description="Plone Add-on for taking applications that have to be approved or denied. An application workflow",
+    description="Plone add-on for an approval process",
     long_description=long_description,
     # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
@@ -47,10 +47,9 @@ setup(
         'plone.directives.form',
         'plone.namedfile',
         'z3c.form',
-        'Products.PloneFormGen==1.8.4',
-        'collective.pfg.dexterity==1.0.0rc1',
+        # 'Products.PloneFormGen==1.8.4',
+        # 'collective.pfg.dexterity==1.0.0rc1',
         'collective.z3cform.datagridfield',
-        'collective.importexport',
     ],
     extras_require={
         'test': [
