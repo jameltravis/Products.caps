@@ -153,8 +153,7 @@ class IReadmission(model.Schema):
     form.widget(semesterInfo=DataGridFieldFactory)
     semesterInfo = schema.List(
         title=(u'For what semester are you seeking readmission?'),
-        value_type=DictRow(
-            title=(u'Semester and Year'), schema=ISemester),
+        value_type=DictRow(title=(u'Semester and Year'), schema=ISemester),
         required=True,
     )
 

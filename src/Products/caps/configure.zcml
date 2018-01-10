@@ -31,11 +31,6 @@
       post_handler=".setuphandlers.uninstall"
       />
 
-  <!-- <adapter for="Product.caps.readmission.GenerateTitle"
-      provides="Products.caps.readmission.INameFromPersonNames"
-      factory="Product.caps.readmission.NameFromPersonNames"
-      /> -->
-
   <utility
       factory=".setuphandlers.HiddenProfiles"
       name="Products.caps-hiddenprofiles" />
