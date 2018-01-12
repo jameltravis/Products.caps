@@ -8,13 +8,13 @@
 
   <includeDependencies package="." />
 
-  <include package="plone.app.dexterity" />
+  <!-- <include package="plone.app.dexterity" /> -->
 
   <include package=".browser" />
 
   <include file="actions.zcml" />
   
-  <include file="permissions.zcml" />
+  <!-- <include file="permissions.zcml" /> -->
 
   <genericsetup:registerProfile
       name="default"
