@@ -47,8 +47,8 @@ setup(
         'plone.directives.form',
         'plone.namedfile',
         'z3c.form',
-        # 'Products.PloneFormGen==1.8.4',
-        # 'collective.pfg.dexterity==1.0.0rc1',
+        'Products.PloneFormGen==1.8.4',
+        'collective.pfg.dexterity==1.0.0rc1',
         'collective.z3cform.datagridfield',
     ],
     extras_require={

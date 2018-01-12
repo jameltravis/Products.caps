@@ -5,11 +5,11 @@
     i18n_domain="Products.caps">
 
   <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
-  <!-- <include package="z3c.jbot" file="meta.zcml" />
+  <include package="z3c.jbot" file="meta.zcml" />
   <browser:jbot
       directory="overrides"
       layer="Products.caps.interfaces.IProductsCapsLayer"
-      /> -->
+      />
 
   <!-- Publish static files -->
   <plone:static
@@ -18,71 +18,5 @@
       directory="static"
       />
 
-
-    <include package="Products.CMFCore" file="permissions.zcml" />
-
-    <include file="actions.zcml" />
-
-
-    <!-- <browser:page
-        for="Products.caps.interfaces.IEasyForm"
-        name="view"
-        class=".view.EasyFormView"
-        permission="zope2.View"
-        /> -->
-
-    <!-- <browser:page
-        for="Products.caps.interfaces.IEasyForm"
-        name="embedded"
-        class=".view.EasyFormFormEmbedded"
-        permission="zope2.View"
-        />
-    <browser:page
-        name="easyform-controlpanel"
-        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-        permission="cmf.ManagePortal"
-        class=".controlpanel.EasyFormControlPanelView"
-        /> -->
-
-    <!-- <configure zcml:condition="installed plone.dexterity.exportimport"> -->
-
-    <!-- <browser:page
-        for="Products.caps.interfaces.IEasyForm"
-        name="export-easyform"
-        class=".exportimport.EasyFormExportView"
-        permission="cmf.ManagePortal"
-        />
-    <browser:page
-        for="Products.caps.interfaces.IEasyForm"
-        name="import-easyform"
-        class=".exportimport.EasyFormImportView"
-        permission="cmf.ManagePortal"
-        />  -->
-
-    <browser:resource
-        name="easyform.css"
-        file="easyform.css"
-        />
-    <!-- <browser:page
-        for="Products.caps.interfaces.IEasyForm"
-        name="z3cform_validate_field"
-        class=".view.EasyFormInlineValidationView"
-        permission="zope2.View"
-        /> -->
-
-    <!-- BBB -->
-    <!-- <browser:page
-        for="*"
-        name="validate_file_size"
-        class=".view.ValidateFileSize"
-        permission="zope2.View"
-        />
-
-    <browser:page
-        for="*"
-        name="validate_file"
-        class=".view.ValidateFileSize"
-        permission="zope2.View"
-        /> -->
-
+   
 </configure>

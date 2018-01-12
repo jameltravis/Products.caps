@@ -10,9 +10,11 @@
 
   <!-- <include package="plone.app.dexterity" /> -->
 
+  <!-- <include file="actions.zcml" /> -->
+
   <include package=".browser" />
 
-  <include file="actions.zcml" />
+
   
   <!-- <include file="permissions.zcml" /> -->
 
@@ -37,5 +39,6 @@
   <utility
       factory=".setuphandlers.HiddenProfiles"
       name="Products.caps-hiddenprofiles" />
+        
 
 </configure>
