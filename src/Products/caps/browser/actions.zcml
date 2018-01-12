@@ -2,7 +2,8 @@
            xmlns:browser="http://namespaces.zope.org/browser"
            xmlns:zcml="http://namespaces.zope.org/zcml"
            i18n_domain="Products.caps">
-    <adapter factory=".actions.SavedDataTraversal" name="widget" />
+    <!-- <adapter factory=".actions.SavedDataTraversal" name="widget" /> -->
+
     <browser:page
         for="Products.caps.interfaces.IEasyForm"
         name="saveddata"
@@ -39,14 +40,14 @@
         class=".actions.ActionSavedDataView"
         permission="cmf.ModifyPortalContent"
         />
-    <browser:page
+    <!-- <browser:page
         name="order"
         for="Products.caps.interfaces.IEasyFormActionContext"
         class="plone.schemaeditor.browser.field.order.FieldOrderView"
         attribute="move"
         permission="cmf.ModifyPortalContent"
-        />
-    <browser:page
+        /> -->
+    <!-- <browser:page
         name="delete"
         for="Products.caps.interfaces.IEasyFormActionContext"
         class="plone.schemaeditor.browser.field.order.FieldOrderView"
@@ -73,6 +74,6 @@
             for="Products.caps.interfaces.IEasyFormActionsContext"
             class=".actions.AjaxSaveHandler"
             permission="cmf.ModifyPortalContent"
-            />
+            /> -->
     </configure>
 </configure>

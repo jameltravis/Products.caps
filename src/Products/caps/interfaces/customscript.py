@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from .actions import IAction
-from collective.easyform import _
-from collective.easyform import config
+from Products.caps import _
+from Products.caps import config
 from plone.autoform import directives
 
 import zope.interface

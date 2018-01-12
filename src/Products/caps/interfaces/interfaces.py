@@ -7,3 +7,4 @@ from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
 class IProductsCapsLayer(IDefaultBrowserLayer):
     """Marker interface that defines a browser layer."""
+
