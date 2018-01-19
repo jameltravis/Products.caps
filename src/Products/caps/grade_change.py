@@ -14,7 +14,7 @@ from collective.z3cform.datagridfield import DictRow
 from collective.z3cform.datagridfield.datagridfield import DataGridFieldFactory
 
 
-class IGradeAppeal(model.Schema):
+class IGradeChange(model.Schema):
     """Class to create Grade Appeal schema"""
 
     title = schema.TextLine(

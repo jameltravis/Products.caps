@@ -48,7 +48,6 @@ class IPhoneNumbers(model.Schema):
     )
 
 
-# Datagrid schema for the semesters
 class ICourses(model.Schema):
     """Class for 'Course' DataGrid schema"""
 
