@@ -18,5 +18,14 @@
       directory="static"
       />
 
+<!-- Custom main template for Erthang Skanless in our product -->
+
+  <browser:page 
+      name="caps_main_template"
+      for="*"
+      permission="zope.Public"
+      template="caps_main_template.pt"
+      />
+
    
 </configure>

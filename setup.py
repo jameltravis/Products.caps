@@ -49,7 +49,7 @@ setup(
         'z3c.form',
         # 'Products.PloneFormGen==1.8.4',
         # 'collective.pfg.dexterity==1.0.0rc1',
-        'collective.z3cform.datagridfield',
+        'collective.z3cform.datagridfield>=1.3.0',
     ],
     extras_require={
         'test': [

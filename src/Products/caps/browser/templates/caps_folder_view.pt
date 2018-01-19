@@ -11,10 +11,10 @@
             <table>
                 <tr>
                     <th>Student Name</th>
-                    <th>Empl ID</th>
+                    <th>Submission Date</th>
                     <th>Review State</th>
                 </tr>
-                <tr tal:repeat="student python:view.readmission_petitions()">
+                <tr tal:repeat="student python:.views.readmission_petitions()">
                 </tr>
             </table>
         </div>
