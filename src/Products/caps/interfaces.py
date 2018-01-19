@@ -46,3 +46,25 @@ class IPhoneNumbers(model.Schema):
         title=(u'Phone Number (Home)'),
         required=False,
     )
+
+
+# Datagrid schema for the semesters
+class ICourses(model.Schema):
+    """Class for 'Course' DataGrid schema"""
+
+    course = schema.TextLine(
+        title=(u'Course and Course Number'),
+        description=(u'Ex: CHEM 101'),
+    )
+
+    courseCode = schema.TextLine(
+        title=(u'Code'),
+        description=(u'Ex: 12345'),
+        max_length=5,
+    )
+
+    courseSection = schema.TextLine(
+        title=(u'Section'),
+        description=(u'Ex: YY'),
+    )
+
