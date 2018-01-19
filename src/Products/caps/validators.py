@@ -10,7 +10,7 @@ def readmission_limit_constraint(value):
     results = catalog.searchResults(**{'portal_type': 'Readmission', 'emplID': value})
     if len(results) > 3:
         raise interface.Invalid(
-            _(u'Application on file. Please contact OSAS (osas@york.cuny.edu) for further help')
+            _(u"Petition limit exceeded. Please contact osas@york.cuny.edu for further help")
         )
     else:
         return True
