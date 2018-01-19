@@ -2,14 +2,11 @@
 """Module for CAPS Grade change form."""
 
 from Products.caps import _
-from Prodocts.caps.validators import readmission_limit_constraint
-from Products.caps.validators import 
+from Products.caps.validators import choice_constraint
+from Products.caps.validators import name_check_constraint
+from Products.caps.validators import email_constraint
 from Products.caps.interfaces import ISemester
 from zope import schema
-# from zope.interface import Invalid
-# from zope import interface
-# from zope.interface import Interface
-# from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from plone.supermodel import model
 from plone.directives import form
 from plone.namedfile import field
@@ -17,56 +14,20 @@ from collective.z3cform.datagridfield import DictRow
 from collective.z3cform.datagridfield.datagridfield import DataGridFieldFactory
 
 
-# def readmission_limit(value):
-#     """determine if field value exists in catalog index"""
-#     catalog = api.portal.get_tool('portal_catalog')
-#     results = catalog.searchResults(emplID=(value))
-#     if results != -1:
-#         raise Invalid(
-#             _(u'Application on file. Please contact OSAS (osas@york.cuny.edu) for further help')
-#             )
-#     return True
-
-# def email_constraint(value):
-#     """Email validator"""
-#     if '.' not in value and '@' not in value:
-#         raise Invalid(_(u"Sorry, you've entered an invalid email address"))
-#     return True
-
-
-# class ISemester(model.Schema):
-#     """Used for semester and year schema"""
-
-#     semester = schema.Choice(
-#         title=(u'Semester'),
-#         values=[
-#             (u'Fall'),
-#             (u'Winter'),
-#             (u'Spring'),
-#             (u'Summer'),
-#         ],
-#         required=True,
-#         constraint
-#     )
-
-#     semesterYear = schema.TextLine(
-#         title=(u'Year'),
-#         required=True,
-#     )
-
-
 class IGradeAppeal(model.Schema):
     """Class to create Grade Appeal schema"""
 
-    Title = schema.TextLine(
+    title = schema.TextLine(
         title=(u'Name'),
         description=(u'Please enter your First and Last Name'),
         required=True,
+        constraint=name_check_constraint,
     )
 
     petitionReason = schema.Choice(
         title=(u'Reason for Peition'),
         values=[
+            (u"Select One"),
             (u"Extension INC"),
             (u"Grade Appeal"),
             (u"Grade Change"),

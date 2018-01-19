@@ -28,8 +28,11 @@ def email_constraint(value):
     return True
 
 def choice_constraint(value):
-    """if the selection is left on default value, raise error message"""
-    if value == (u'Select One'):
+    """if the selection is left on default value, raise error message
+    In order for this to work the 1st list item must be a generic choice
+    Ex: 'Select One'
+    """
+    if value == value[0]:
         raise interface.Invalid(_(u"Please select a choice"))
     else:
         return True
