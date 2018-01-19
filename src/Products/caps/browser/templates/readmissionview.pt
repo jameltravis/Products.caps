@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="Products.caps">
+<body>
+    <metal:content-core fill-slot="content-core">
+        <h1>Welcome ${current_user}</h1>
+        <div>
+            <table>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Submission Date</th>
+                    <th>Review State</th>
+                </tr>
+                <tr tal:repeat="readmission python:.views.readmission_petitions()">
+                  <td>
+                    ${python: readmission['title']}
+                  </td>
+                  <td>
+                    ${python: readmission['emplID']}
+                  </td>
+                  <td>
+                    ${python: readmission['CreationDate']}
+                  </td>
+                  <td>
+                    ${python: readmission['review_state']}
+                  </td>
+                </tr>
+            </table>
+        </div>
+    </metal:content-core>
+</body>
+</html>

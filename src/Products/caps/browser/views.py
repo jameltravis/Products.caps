@@ -1,7 +1,7 @@
 """Module for creating the Committee Dashboard"""
 
 from Products.Five.browser import BrowserView
-# from operator import itemgetter
+from operator import itemgetter
 from plone import api
 
 
@@ -74,14 +74,13 @@ class DashView(BrowserView):
         # catalog = api.portal.get_tool('portal_catalog')
         brains = api.content.find(
             portal_type='GradeAppeal',
-            sort_on='review_state',
-            sort_order='descending',
         )
 
         for brain in brains:
             results.append({
                 'title': brain.Title,
                 'emplID': brain.emplID,
+                'CreationDate': brain.CreationDate,
                 'review_state': brain.review_state
             })
-        return results
+        return sorted(results, key=itemgetter('review_state'))

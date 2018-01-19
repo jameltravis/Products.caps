@@ -15,56 +15,6 @@ from collective.z3cform.datagridfield import DictRow
 from collective.z3cform.datagridfield.datagridfield import DataGridFieldFactory
 
 
-def readmission_limit(value):
-    """determine if field value exists in catalog index"""
-    catalog = api.portal.get_tool('portal_catalog')
-    results = catalog.searchResults(emplID=(value))
-    if results != -1:
-        raise Invalid(
-            _(u'Application on file. Please contact OSAS (osas@york.cuny.edu) for further help')
-            )
-    return True
-
-class ICourses(model.Schema):
-    """Class for 'Course' DataGrid schema"""
-
-    course = schema.TextLine(
-        title=(u'Course and Course Number'),
-        description=(u'Ex: CHEM 101'),
-    )
-
-    courseCode = schema.TextLine(
-        title=(u'Code'),
-        description=(u'Ex: 12345'),
-        max_length=5,
-    )
-
-    courseSection = schema.TextLine(
-        title=(u'Section'),
-        description=(u'Ex: YY'),
-    )
-
-
-class ISemester(model.Schema):
-    """Used for semester and year DataGrid schema"""
-
-    semester = schema.Choice(
-        title=(u'Semester'),
-        values=[
-            (u'Fall'),
-            (u'Winter'),
-            (u'Spring'),
-            (u'Summer'),
-        ],
-        required=True,
-    )
-
-    semesterYear = schema.TextLine(
-        title=(u'Year'),
-        required=True,
-    )
-
-
 class IExtraCredits(model.Schema):
     """Class to create CAPS Leave of Absence Petition"""
 
