@@ -18,6 +18,12 @@
       directory="static"
       />
 
-
+  <browser:page 
+      name="readmission-view"
+      for="*"
+      class=".views.DashView"
+      template="templates/readmissionview.pt"
+      permission="zope2.View"
+      />
    
 </configure>
