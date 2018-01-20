@@ -1,7 +1,7 @@
 """Module for creating the Committee Dashboard"""
 
-from Products.Five.browser import BrowserView
 from operator import itemgetter
+from Products.Five.browser import BrowserView
 from plone import api
 
 
