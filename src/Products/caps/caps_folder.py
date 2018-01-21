@@ -1,13 +1,13 @@
 """A CAPS Folder.
 
-A Folderish object created to house caps forms."""
+A Folderish object created to house caps forms.
+"""
 
 from Products.caps import _
 from plone.supermodel import model
 from zope import schema
 
 class ICAPSFolder(model.Schema):
-
     """Class for defaault view for Caps Committee dash"""
 
     title = schema.TextLine(

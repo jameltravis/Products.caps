@@ -37,7 +37,6 @@
   <!-- Enabled behaviors -->
   <property name="behaviors">
     <element value="plone.app.content.interfaces.INameFromTitle" />
-    <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
   </property>
 
   <!-- View information -->
@@ -46,7 +45,7 @@
   <property name="default_view">view</property>
   <property name="default_view_fallback">False</property>
   <property name="view_methods">
-    <element value="talkview" />
+    <element value="view" />
   </property>
 
   <!-- Method aliases -->

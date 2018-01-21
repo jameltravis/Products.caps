@@ -7,7 +7,7 @@ from plone import api
 
 class DashView(BrowserView):
     """
-    Class for each petition type
+    Classs for finding lists of a given petition type.
     """
 
     def readmission_petitions(self):
@@ -15,11 +15,7 @@ class DashView(BrowserView):
 
         results = []
         # catalog = api.portal.get_tool('portal_catalog')
-        brains = api.content.find(
-            portal_type='Readmission',
-            sort_on='review_state',
-            sort_order='descending',
-        )
+        brains = api.content.find(portal_type='Readmission')
 
         for brain in brains:
             results.append({
@@ -27,18 +23,14 @@ class DashView(BrowserView):
                 'emplID': brain.emplID,
                 'review_state': brain.review_state
             })
-        return results
+        return sorted(results, key=itemgetter('review_state'))
 
     def extra_credit_petitions(self):
         """Petitions for extra credits"""
 
         results = []
         # catalog = api.portal.get_tool('portal_catalog')
-        brains = api.content.find(
-            portal_type='ExtraCredits',
-            sort_on='review_state',
-            sort_order='descending',
-        )
+        brains = api.content.find(portal_type='ExtraCredits')
 
         for brain in brains:
             results.append({
@@ -46,18 +38,14 @@ class DashView(BrowserView):
                 'emplID': brain.emplID,
                 'review_state': brain.review_state
             })
-        return results
+        return sorted(results, key=itemgetter('review_state'))
 
     def leave_abs_petitions(self):
         """Petitions for Leave of Absence and Retroactive Withdrawals"""
 
         results = []
         # catalog = api.portal.get_tool('portal_catalog')
-        brains = api.content.find(
-            portal_type='LeaveAbs',
-            sort_on='review_state',
-            sort_order='descending',
-        )
+        brains = api.content.find(portal_type='LeaveAbs')
 
         for brain in brains:
             results.append({
@@ -65,16 +53,14 @@ class DashView(BrowserView):
                 'emplID': brain.emplID,
                 'review_state': brain.review_state
             })
-        return results
+        return sorted(results, key=itemgetter('review_state'))
 
     def grade_appeal_petitions(self):
         """Petitions to have a single grade appealed"""
 
         results = []
         # catalog = api.portal.get_tool('portal_catalog')
-        brains = api.content.find(
-            portal_type='GradeAppeal',
-        )
+        brains = api.content.find(portal_type='GradeAppeal')
 
         for brain in brains:
             results.append({
@@ -84,3 +70,18 @@ class DashView(BrowserView):
                 'review_state': brain.review_state
             })
         return sorted(results, key=itemgetter('review_state'))
+
+    def find_readmissions(self):
+        """Use portal_catalog this time to find readmission petitions"""
+        catalog = api.portal.get_tool('portal_catalog')
+        results = catalog.searchResults(**{'portal_type': 'Readmission'})
+        petitions = []
+
+        for brains in results:
+            petitions.append({
+                'title': brains.Title,
+                'emplID': brains.emplID,
+                'CreationDate': brains.CreationDate,
+                'review_state': brains.review_state
+            })
+        return sorted(petitions, key=itemgetter('review_state'))

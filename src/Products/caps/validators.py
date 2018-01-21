@@ -31,8 +31,9 @@ def choice_constraint(value):
     """if the selection is left on default value, raise error message
     In order for this to work the 1st list item must be a generic choice
     Ex: 'Select One'
+    for ease # if value == value[0]:
     """
-    if value == value[0]:
+    if value == (u'Select One'):
         raise interface.Invalid(_(u"Please select a choice"))
     else:
         return True

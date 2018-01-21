@@ -66,4 +66,3 @@ class ICourses(model.Schema):
         title=(u'Section'),
         description=(u'Ex: YY'),
     )
-

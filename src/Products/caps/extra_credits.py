@@ -2,15 +2,15 @@
 """Module for CAPS Grade change form."""
 
 from Products.caps import _
-from Products.caps.validators import choice_constraint
+# from Products.caps.validators import choice_constraint
 from Products.caps.validators import name_check_constraint
 from Products.caps.validators import email_constraint
 from Products.caps.interfaces import ISemester
 from Products.caps.interfaces import ICourses
-from zope import schema
 from plone.supermodel import model
 from plone.namedfile import field
 from plone.directives import form
+from zope import schema
 from collective.z3cform.datagridfield import DictRow
 from collective.z3cform.datagridfield.datagridfield import DataGridFieldFactory
 
@@ -23,11 +23,6 @@ class IExtraCredits(model.Schema):
         description=(u'Please enter your First and Last Name'),
         required=True,
         contraint=name_check_constraint,
-    )
-
-    petitionType = schema.Choice(
-        title=(u'Petition For: '),
-        values=[(u'Extra Credits')],
     )
 
     email = schema.TextLine(
@@ -70,7 +65,7 @@ class IExtraCredits(model.Schema):
         description=(u'Enter your 5 digit zip code'),
         required=True,
         min_length=5,
-        max_length=5,
+        max_length=10,
     )
 
     birthday = schema.Date(
@@ -96,18 +91,26 @@ class IExtraCredits(model.Schema):
 
     studentStatement = field.NamedBlobFile(
         title=(u'Personal Statement'),
-        description=(u'Be sure to include your last date of attendence for each course'),
+        description=(
+            u'Address reasons for past academic difficulties, and detailed plan for change'
+            ),
         required=True,
     )
 
+    transcript = field.NamedBlobFile(
+        title=(u'Transcript'),
+        description=(u'Petitions without transcripts will not be considered'),
+        required=True
+    )
+
     supportingDocument = field.NamedBlobFile(
-        title=(u'Supporting Documentation'),
+        title=(u'Supporting Document'),
         description=(u'Upload any supporting documentation here'),
         required=False,
     )
 
     additionalDocuments = field.NamedBlobFile(
-        title=(u'Additional Documentation'),
-        description=(u'If you have any additional documentation, upload it here'),
+        title=(u'Additional Documents'),
+        description=(u'Upload additional supporting documentation here'),
         required=False,
     )

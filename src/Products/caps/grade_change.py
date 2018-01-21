@@ -6,10 +6,10 @@ from Products.caps.validators import choice_constraint
 from Products.caps.validators import name_check_constraint
 from Products.caps.validators import email_constraint
 from Products.caps.interfaces import ISemester
-from zope import schema
 from plone.supermodel import model
 from plone.directives import form
 from plone.namedfile import field
+from zope import schema
 from collective.z3cform.datagridfield import DictRow
 from collective.z3cform.datagridfield.datagridfield import DataGridFieldFactory
 
@@ -34,14 +34,8 @@ class IGradeChange(model.Schema):
             (u"Other")
             ],
         required=True,
-        # constraint=
+        constraint=choice_constraint
     )
-
-    petitionType = schema.Choice(
-        title=(u'Petition For: '),
-        values=[(u'Grade Appeal')],
-    )
-
 
     email = schema.TextLine(
         title=(u'Email Address'),

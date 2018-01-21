@@ -4,5 +4,5 @@
   <object name="ExtraCredits" meta_type="Dexterity FTI"/>
   <object name="LeaveAbs" meta_type="Dexterity FTI"/>
   <object name="GradeChange" meta_type="Dexterity FTI"/>
-  <object nmae="CAPSFolder" meta_type="Dexterity FTI"/>
+  <object name="CAPSFolder" meta_type="Dexterity FTI"/>
 </object>

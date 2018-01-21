@@ -4,7 +4,7 @@
     i18n:domain="Products.caps">
 <body>
     <metal:content-core fill-slot="content-core">
-        <h1>Welcome ${current_user}</h1>
+        <h1>Welcome Committee Members</h1>
         <div>
             <table>
                 <tr>
@@ -12,18 +12,18 @@
                     <th>Submission Date</th>
                     <th>Review State</th>
                 </tr>
-                <tr tal:repeat="readmission python:.views.readmission_petitions()">
+                <tr tal:repeat="results python:view.find_readmissions()">
                   <td>
-                    ${python: readmission['title']}
+                    ${python: results['title']}
                   </td>
                   <td>
-                    ${python: readmission['emplID']}
+                    ${python: results['emplID']}
                   </td>
                   <td>
-                    ${python: readmission['CreationDate']}
+                    ${python: results['CreationDate']}
                   </td>
                   <td>
-                    ${python: readmission['review_state']}
+                    ${python: results['review_state']}
                   </td>
                 </tr>
             </table>

@@ -2,7 +2,7 @@
 """Module for CAPS Grade change form."""
 
 from Products.caps import _
-from Products.caps.validators import choice_constraint
+# from Products.caps.validators import choice_constraint
 from Products.caps.validators import name_check_constraint
 from Products.caps.validators import email_constraint
 from Products.caps.interfaces import ICourses
@@ -18,23 +18,12 @@ from collective.z3cform.datagridfield.datagridfield import DataGridFieldFactory
 class IExtraCredits(model.Schema):
     """Class to create CAPS Leave of Absence Petition"""
 
-    firstName = schema.TextLine(
-        title=(u'First Name'),
-        description=(u'Please enter your First Name'),
+    title = schema.TextLine(
+        title=(u'Name'),
+        description=(u'Please enter your First and Last Name'),
         required=True,
+        constraint=name_check_constraint
     )
-
-    LastName = schema.TextLine(
-        title=(u'First Name'),
-        description=(u'Please enter your Last Name'),
-        required=True,
-    )
-
-    petitionType = schema.Choice(
-        title=(u'Petition For: '),
-        values=[(u'Extra Credits')],
-    )
-
 
     email = schema.TextLine(
         title=(u'Email Address'),
@@ -71,12 +60,12 @@ class IExtraCredits(model.Schema):
         required=True,
     )
 
-    zipCode = schema.Int(
+    zipCode = schema.TextLine(
         title=(u'Zip Code'),
         description=(u'Enter your 5 digit zip code'),
         required=True,
-        min=501,
-        max=99999,
+        min_length=5,
+        max_length=10,
     )
 
     birthday = schema.Date(
@@ -100,20 +89,28 @@ class IExtraCredits(model.Schema):
         required=False,
     )
 
-    studentStatement = field.NamedFile(
+    studentStatement = field.NamedBlobFile(
         title=(u'Personal Statement'),
-        description=(u'Be sure to include your last date of attendence for each course'),
+        description=(
+            u'Address reasons for past academic difficulties, and detailed plan for change'
+            ),
         required=True,
     )
 
-    supportingDocument = field.NamedFile(
-        title=(u'Supporting Documentation'),
+    transcript = field.NamedBlobFile(
+        title=(u'Transcript'),
+        description=(u'Petitions without transcripts will not be considered'),
+        required=True
+    )
+
+    supportingDocument = field.NamedBlobFile(
+        title=(u'Supporting Document'),
         description=(u'Upload any supporting documentation here'),
         required=False,
     )
 
-    additionalDocuments = field.NamedFile(
-        title=(u'Additional Documentation'),
-        description=(u'If you have any additional documentation, upload it here'),
+    additionalDocuments = field.NamedBlobFile(
+        title=(u'Additional Documents'),
+        description=(u'Upload additional supporting documentation here'),
         required=False,
     )
