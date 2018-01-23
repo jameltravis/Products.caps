@@ -9,6 +9,7 @@
             <table>
                 <tr>
                     <th>Student Name</th>
+                    <th>EmplID</th>
                     <th>Submission Date</th>
                     <th>Review State</th>
                 </tr>

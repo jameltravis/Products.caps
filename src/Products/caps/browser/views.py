@@ -73,10 +73,12 @@ class DashView(BrowserView):
 
     def find_readmissions(self):
         """Use portal_catalog this time to find readmission petitions"""
+        # get catalog tool to query DB
         catalog = api.portal.get_tool('portal_catalog')
+        # Actually Querying the DB
         results = catalog.searchResults(**{'portal_type': 'Readmission'})
         petitions = []
-
+        # Put the query results in a list and get attributes of interest
         for brains in results:
             petitions.append({
                 'title': brains.Title,
