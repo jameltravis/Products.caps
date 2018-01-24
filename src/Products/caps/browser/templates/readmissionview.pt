@@ -8,7 +8,7 @@
         <h1>Welcome Committee Members</h1>
         <div>
             <table>
-                <tr tal:define="">
+                <tr>
                     <th>Student Name</th>
                     <th>EmplID</th>
                     <th>Submission Date</th>
@@ -31,7 +31,6 @@
             </table>
             <div tal:content="context/emplID"></div>
         </div>
-        </>
     </metal:content-core>
 </body>
 </html>

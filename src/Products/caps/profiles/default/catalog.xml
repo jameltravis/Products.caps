@@ -3,4 +3,6 @@
  <index name="emplID" meta_type="FieldIndex">
   <indexed_attr value="emplID"/>
  </index>
+
+ <column value="emplID" />
 </object>
