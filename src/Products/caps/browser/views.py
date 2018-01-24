@@ -87,3 +87,7 @@ class DashView(BrowserView):
                 'review_state': brains.review_state
             })
         return sorted(petitions, key=itemgetter('review_state'))
+
+class IndexView(BrowserView):
+    """Renders caps index template"""
+    pass
