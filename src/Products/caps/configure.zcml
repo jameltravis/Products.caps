@@ -10,6 +10,8 @@
 
   <include package=".browser" />
 
+  <includef file="upgrades.zcml">
+
 
   <genericsetup:registerProfile
       name="default"

@@ -1,20 +1,19 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
-    lang="en"
-    metal:use-macro="context/main_template/macros/master"
-    i18n:domain="Products.caps">
-<body>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" metal:use-macro="context/main_template/macros/master" i18n:domain="Products.caps">
+  <body>
     <metal:content-core fill-slot="content-core">
         <h2>Get started</h2>
         <p>Before navigating to the forms you're looking for:</p>
         <ol>
-            <li>If you haven't already, contact the Office of Student Academic Services before to ensure you get the best help possible. You can contact them at osas@york.cuny.edu</li>
-            <li>Make sure you are logged in. </li>
-            <li>Read the 'Tips for Personal Statements' below</li>
-            <li>Have your personal statements, transcripts and supporting documents (if applicable) ready.</li>
-            <li>Click the button for the appropriate form below.</li>
+          <li>If you haven't already, contact the Office of Student Academic Services before to ensure you get the best help possible. You can contact them at osas@york.cuny.edu</li>
+          <li>Make sure you are logged in. </li>
+          <li>Read the 'Tips for Personal Statements' below</li>
+          <li>Have your personal statements, transcripts and supporting documents (if applicable) ready.</li>
+          <li>Click the button for the appropriate form below.</li>
         </ol>
-        <p><strong>Note:</strong> Students applying for readmission may only do so 4 times, total. The first time will be considered your 'Petition for Readmission'. Any subsequent application will be considered an 'Appeal of Dismissal'. Students are only allowed 3 appeals (so a grand total of 4 applications for readmission).</p>
-        <p>It is our wish that every student has a readmission application strong enough to warrant readmission. To give yourself the very best odds, we <strong>strongly</strong> recommend  that you contact the Office of Student Academic Services before completing an application.</p>
+        <p><strong>Note:</strong> Students applying for readmission may only do so 4 times, total. The first time will be considered your 'Petition for Readmission'. Any subsequent application will be considered an 'Appeal of Dismissal'. Students are only
+            allowed 3 appeals (so a grand total of 4 applications for readmission).</p>
+        <p>It is our wish that every student has a readmission application strong enough to warrant readmission. To give yourself the very best odds, we <strong>strongly</strong> recommend  that you contact the Office of Student Academic Services before
+            completing an application.</p>
         <p>Email us at osas@york.cuny.edu or fill out a Student Refferal Form and we'll reach out to you.</p>
         <h2>Tips for Personal Statements</h2>
         <p>When considering your petition, your personal statement can make all the difference. When writing your personal statement make sure you accomplish the following:</p>
@@ -27,10 +26,21 @@
         <h2>Good Luck</h2>
         <p>Click one of the buttons below to be redirected to the corresponding form:</p>
         <h3>CAPS</h3>
-        <p>Petition for Readmission</p>
-        <p>Petition for Extra Credits</p>
-        <p>Petition for a Change of Grade</p>
-        <p>Leave of Absence or Retroactive Withdrawal </p>
+        <div class="container">
+            <div class=row>
+                <div class="col-md-3">
+                  <button class="btn btn-lg btn-primary"><a href="#">Petition for Readmission</a></button>
+                </div>
+                <div class="col-md-3">
+                  <button class="btn btn-lg btn-primary"><a href="#">Petition for Extra Credits</a> </button>
+                </div>
+                <div class="col-md-3">
+                  <button class="btn btn-lg btn-primary"><a href="#">Petition for a Change of Grade</a> </button>
+                </div>
+                <div class="col-md-3">
+                  <button class="btn btn-lg btn-primary"><a href="#">Leave of Absence or Retroactive Withdrawal</a></button>
+                </div>
+            </div>
     </metal:content-core>
-</body>
+  </body>
 </html>
