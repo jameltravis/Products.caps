@@ -4,12 +4,13 @@
     i18n:domain="Products.caps">
 <body>
     <metal:content-core fill-slot="content-core">
-        <!-- <h2>Welcome Committee Members</h1> -->
         <div class="container">
-         <p>Please take the time to familiarize yourself with the control panel. Here are some fucking choice tips to help you with your processes. There will be pictures throughout this guide. If you are unclear which step the picture is referencing, hover your mouse over the picture.</p>
-         <h2>Finding Petitions</h2>
+        <h2>Tutorial</h2>
+         <p>Please take the time to familiarize yourself with the left panel. There will be pictures throughout this guide to reduce some some of the ambiguity.</p>
+         <h3>Finding Petitions</h3>
          <p>In order to view this page, you must be logged in.</p>
          <p>If you look to your right there will be a black toolbar that spans from the top-left to the bottom-left of the page.</p>
+         <img src="/static/" alt=""/>
 
 
         </div>

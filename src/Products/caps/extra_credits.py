@@ -22,7 +22,7 @@ class IExtraCredits(model.Schema):
         title=(u'First and Last Name'),
         description=(u'Please enter your First and Last Name'),
         required=True,
-        contraint=name_check_constraint,
+        constraint=name_check_constraint,
     )
 
     email = schema.TextLine(
@@ -92,7 +92,7 @@ class IExtraCredits(model.Schema):
     studentStatement = field.NamedBlobFile(
         title=(u'Personal Statement'),
         description=(
-            u'Address reasons for past academic difficulties, and detailed plan for change'
+            u'Be sure to include a plan detailing how you will manage this courseload'
             ),
         required=True,
     )

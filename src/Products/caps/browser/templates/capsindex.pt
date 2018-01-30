@@ -4,25 +4,33 @@
     i18n:domain="Products.caps">
 <body>
     <metal:content-core fill-slot="content-core">
-        <div class="container">
-          <!-- <h1>Committee on Academic Policy and Standards</h1> -->
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-primary" href="#">View details »</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <button><a class="btn" href="#">View details »</a></button>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details »</a></p>
-            </div><!--/span-->
-        </div>
+        <h2>Get started</h2>
+        <p>Before navigating to the forms you're looking for:</p>
+        <ol>
+            <li>If you haven't already, contact the Office of Student Academic Services before to ensure you get the best help possible. You can contact them at osas@york.cuny.edu</li>
+            <li>Make sure you are logged in. </li>
+            <li>Read the 'Tips for Personal Statements' below</li>
+            <li>Have your personal statements, transcripts and supporting documents (if applicable) ready.</li>
+            <li>Click the button for the appropriate form below.</li>
+        </ol>
+        <p><strong>Note:</strong> Students applying for readmission may only do so 4 times, total. The first time will be considered your 'Petition for Readmission'. Any subsequent application will be considered an 'Appeal of Dismissal'. Students are only allowed 3 appeals (so a grand total of 4 applications for readmission).</p>
+        <p>It is our wish that every student has a readmission application strong enough to warrant readmission. To give yourself the very best odds, we <strong>strongly</strong> recommend  that you contact the Office of Student Academic Services before completing an application.</p>
+        <p>Email us at osas@york.cuny.edu or fill out a Student Refferal Form and we'll reach out to you.</p>
+        <h2>Tips for Personal Statements</h2>
+        <p>When considering your petition, your personal statement can make all the difference. When writing your personal statement make sure you accomplish the following:</p>
+        <ul>
+            <li>Clearly explain your situation.</li>
+            <li>Sell yourself. Why should we, The Lords, help someone like you.</li>
+            <li>What is your plan? A good plan, increases the likelihood of success.</li>
+            <li>If possible, try to provide official documentation that supports what you wrote in your personal statement Remember that the committee has to be <em>convinced</em>.</li>
+        </ul>
+        <h2>Good Luck</h2>
+        <p>Click one of the buttons below to be redirected to the corresponding form:</p>
+        <h3>CAPS</h3>
+        <p>Petition for Readmission</p>
+        <p>Petition for Extra Credits</p>
+        <p>Petition for a Change of Grade</p>
+        <p>Leave of Absence or Retroactive Withdrawal </p>
     </metal:content-core>
 </body>
 </html>

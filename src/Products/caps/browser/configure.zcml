@@ -36,4 +36,14 @@
       />
 
 
+  <browser:viewlet
+      name="voting"
+      for="Products.caps.vote_interface.IVoting"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+      layer="..vote_interface.IVotableLayer"
+      class=".viewlets.Vote"
+      template="templates/voting_viewlet.pt"
+      permission="zope2.View"
+      />
+
 </configure>
