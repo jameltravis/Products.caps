@@ -28,6 +28,8 @@ class DashView(BrowserView):
         else:
             return sorted(petitions, key=itemgetter('review_state'))
 
+
+
 class IndexView(BrowserView):
     """Methods for the index page of CAPS."""
 

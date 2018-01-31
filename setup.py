@@ -47,10 +47,11 @@ setup(
         'plone.directives.form',
         'plone.namedfile',
         'z3c.form',
-        'Products.PloneFormGen==1.8.4',
-        'collective.pfg.dexterity==1.0.0rc1',
+        # 'Products.PloneFormGen==1.8.4',
+        # 'collective.pfg.dexterity==1.0.0rc1',
         'collective.z3cform.datagridfield>=1.3.0',
-        'collective.easyform>=2.0.0b2'
+        'collective.easyform>=2.0.0b2',
+        # 'plone.app.mosaic>=2.0rc8',
     ],
     extras_require={
         'test': [
