@@ -9,7 +9,7 @@ from Products.caps import _
 from Products.caps.validators import readmission_limit_constraint, choice_constraint
 from Products.caps.validators import name_check_constraint, email_constraint
 from Products.caps.interfaces import ISemester, IPhoneNumbers, ICommitteeVote
-from plone.supermodel import model
+from plone.supermodel import model, directives
 from plone.directives import form
 from plone.namedfile import field
 from plone.autoform import directives as permission
@@ -119,6 +119,16 @@ class IReadmission(model.Schema):
         required=False,
     )
 
+    # Create new fieldset for Committee Approval Field
+    directives.fieldset(
+        'Staff Only',
+        fields=[
+            'committeeApproval',
+            ]
+        )
+
+    # Permissions-dependent field for Committee to see who has
+    # note each member's 'vote' on a specific petition
     permission.read_permission(committeeApproval='cmf.ModifyPortalContent')
     permission.write_permission(committeeApproval='cmf.ModifyPortalContent')
     form.widget(committeeApproval=DataGridFieldFactory)

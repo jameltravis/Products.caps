@@ -6,7 +6,8 @@ from Products.caps.validators import choice_constraint
 from Products.caps.validators import name_check_constraint
 from Products.caps.validators import email_constraint
 from Products.caps.interfaces import ISemester
-from plone.supermodel import model
+from plone.supermodel import model, directives
+from plone.autoform import directives as permission
 from plone.directives import form
 from plone.namedfile import field
 from zope import schema
@@ -114,4 +115,26 @@ class IGradeChange(model.Schema):
         title=(u'Supporting Document'),
         description=(u'Upload any supporting documentation here'),
         required=False,
+    )
+
+    # Create new fieldset for Committee Approval Field
+    directives.fieldset(
+        'Staff Only',
+        fields=[
+            'committeeApproval',
+            ]
+        )
+
+    # Permissions-dependent field for Committee to see who has
+    # note each member's 'vote' on a specific petition
+    permission.read_permission(committeeApproval='cmf.ModifyPortalContent')
+    permission.write_permission(committeeApproval='cmf.ModifyPortalContent')
+    form.widget(committeeApproval=DataGridFieldFactory)
+    committeeApproval = schema.List(
+        title=(u'Committee Member Votes'),
+        value_type=DictRow(
+            title=(u'Please enter your name and vote'),
+            schema=ICommitteeVote
+            ),
+        # required=True,
     )
