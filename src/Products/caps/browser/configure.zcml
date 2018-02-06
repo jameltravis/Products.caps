@@ -22,7 +22,8 @@
   <browser:page 
       name="readmission-view"
       for="*"
-      class=".views.DashView"
+      layer="zope.interface.Interface"
+      class=".views.ReadmissionView"
       template="templates/readmissionview.pt"
       permission="zope2.View"
       />

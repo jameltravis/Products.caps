@@ -6,15 +6,13 @@ Datagridfield classes, and Content type Schema.
 """
 
 from Products.caps import _
-from Products.caps.validators import readmission_limit_constraint
-from Products.caps.validators import choice_constraint
-from Products.caps.validators import name_check_constraint
-from Products.caps.validators import email_constraint
-from Products.caps.interfaces import ISemester
-from Products.caps.interfaces import IPhoneNumbers
+from Products.caps.validators import readmission_limit_constraint, choice_constraint
+from Products.caps.validators import name_check_constraint, email_constraint
+from Products.caps.interfaces import ISemester, IPhoneNumbers, ICommitteeVote
 from plone.supermodel import model
 from plone.directives import form
 from plone.namedfile import field
+from plone.autoform import directives as permission
 from zope import schema
 from collective.z3cform.datagridfield import DictRow
 from collective.z3cform.datagridfield.datagridfield import DataGridFieldFactory
@@ -119,4 +117,16 @@ class IReadmission(model.Schema):
         title=(u'Additional Documents'),
         description=(u'Upload additional supporting documentation here'),
         required=False,
+    )
+
+    permission.read_permission(committeeApproval='cmf.ModifyPortalContent')
+    permission.write_permission(committeeApproval='cmf.ModifyPortalContent')
+    form.widget(committeeApproval=DataGridFieldFactory)
+    committeeApproval = schema.List(
+        title=(u'Committee Member Votes'),
+        value_type=DictRow(
+            title=(u'Please enter your name and vote'),
+            schema=ICommitteeVote
+            ),
+        # required=True,
     )

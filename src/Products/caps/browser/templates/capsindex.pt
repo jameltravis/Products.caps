@@ -28,18 +28,28 @@
         <h3>CAPS</h3>
         <div class="container">
             <div class=row>
-                <div class="col-md-3">
-                  <button class="btn btn-lg btn-primary"><a href="#">Petition for Readmission</a></button>
+                <div class="col-xs-12 col-md-6">
+                  <button class="btn btn-lg btn-primary">
+                  <a href="${folder_url}/++add++Readmission">Petition for Readmission</a>
+                  </button>
                 </div>
-                <div class="col-md-3">
-                  <button class="btn btn-lg btn-primary"><a href="#">Petition for Extra Credits</a> </button>
+                <div class="col-xs-12 col-md-6">
+                  <button class="btn btn-lg btn-primary">
+                  <a href="${folder_url}/++add++ExtraCredits">Petition for Extra Credits</a> 
+                  </button>
                 </div>
-                <div class="col-md-3">
-                  <button class="btn btn-lg btn-primary"><a href="#">Petition for a Change of Grade</a> </button>
+              <div class="row">
+                <div class="col-xs-12 col-md-6">
+                  <button class="btn btn-lg btn-primary">
+                  <a href="${folder_url}/++add++GradeChange">Petition for a Change of Grade</a>
+                  </button>
                 </div>
-                <div class="col-md-3">
-                  <button class="btn btn-lg btn-primary"><a href="#">Leave of Absence or Retroactive Withdrawal</a></button>
+                <div class="col-xs-12 col-md-6">
+                  <button class="btn btn-lg btn-primary">
+                  <a href="${folder_url}/++add++LeaveAbs">Leave of Absence or Retroactive Withdrawal</a>
+                  </button>
                 </div>
+              </div>
             </div>
     </metal:content-core>
   </body>

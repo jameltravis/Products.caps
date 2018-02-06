@@ -3,7 +3,7 @@
 from operator import itemgetter
 from Products.Five.browser import BrowserView
 from plone import api
-
+from plone.dexterity.browser.view import DefaultView
 
 class DashView(BrowserView):
     """
@@ -77,3 +77,7 @@ class IndexView(BrowserView):
             return 0
         else:
             return len(petitions)
+
+class ReadmissionView(DefaultView):
+    """Provides readmissionview.pt template
+    """

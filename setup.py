@@ -51,7 +51,6 @@ setup(
         # 'collective.pfg.dexterity==1.0.0rc1',
         'collective.z3cform.datagridfield>=1.3.0',
         'collective.easyform>=2.0.0b2',
-        # 'plone.app.mosaic>=2.0rc8',
     ],
     extras_require={
         'test': [
