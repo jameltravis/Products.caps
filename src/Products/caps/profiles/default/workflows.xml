@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<object name="portal_workflow" meta_type="Plone Workflow Tool">
+ <object name="caps_workflow" meta_type="Workflow"/>
+ <bindings>
+  <type type_id="Readmission"/>
+    <bound-workflow workflow_id="caps_workflow"/>
+  <type type_id="ExtraCredits"/>
+    <bound-workflow workflow_id="caps_workflow"/>
+  <type type_id="GradeChange"/>
+    <bound-workflow workflow_id="caps_workflow"/>
+  <type type_id="LeaveAbs"/>
+    <bound-workflow workflow_id="caps_workflow"/>
+ </bindings>
+</object>

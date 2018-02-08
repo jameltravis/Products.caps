@@ -3,15 +3,9 @@
 
 from Products.caps import _
 from Products.caps.validators import choice_constraint
-from plone import api
-from plone.autoform import directives
-from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
-from plone.supermodel.directives import fieldset
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from zope import schema
-from zope.interface import alsoProvides, Interface
-
 
 class IProductsCapsLayer(IDefaultBrowserLayer):
     """Marker interface that defines a browser layer."""
