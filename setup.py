@@ -47,12 +47,8 @@ setup(
         'plone.directives.form',
         'plone.namedfile',
         'z3c.form',
-        'starzel.votable_behavior',
         'collective.z3cform.datagridfield>=1.3.0',
         'collective.easyform>=2.0.0b2',
-    ],
-    dependency_links=[
-        'git+https://github.com/collective/starzel.votable_behavior.git#egg=starzel.votable_behavior-1.0.0',
     ],
     extras_require={
         'test': [

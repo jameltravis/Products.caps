@@ -2,10 +2,8 @@
 """Module for CAPS Grade change form."""
 
 from Products.caps import _
-from Products.caps.validators import choice_constraint
-from Products.caps.validators import name_check_constraint
-from Products.caps.validators import email_constraint
-from Products.caps.interfaces import ISemester
+from Products.caps.validators import choice_constraint, name_check_constraint, email_constraint
+from Products.caps.interfaces import ISemester, ICommitteeVote
 from plone.supermodel import model, directives
 from plone.autoform import directives as permission
 from plone.directives import form
@@ -41,7 +39,7 @@ class IGradeChange(model.Schema):
     email = schema.TextLine(
         title=(u'Email Address'),
         required=True,
-        # constraint=email_constraint,
+        constraint=email_constraint,
     )
 
     emplID = schema.TextLine(
